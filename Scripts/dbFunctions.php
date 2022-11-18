@@ -1,10 +1,10 @@
 <?php 
     $host = "host = 127.0.0.1";
     $port = "port = 5432";
-    $dbname = "dbname = ElderCareSystem";
+    $dbname = "dbname = flask_db";
     $credentials = "user = postgres password=gabe1972";
     function dbConnect($host, $port, $dbname, $credentials){
-        return pg_connect($host, $port, $dbname, $credentials); #Connect to the database using user input credentials
+        return pg_connect("$host $port $dbname $credentials"); #Connect to the database using user input credentials
     }
     function dbStart($db){ #Create the tables in database if they dont already exist
         
@@ -13,7 +13,7 @@
         (empID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50),role VARCHAR(50),salary BIGINT,DOB DATE,password VARCHAR(30),phone VARCHAR(15));
         
         CREATE TABLE IF NOT EXISTS patients
-        (patientID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50),group INT,payments INT, familyCode VARCHAR(50),eContact VARCHAR(15),eContactName VARCHAR(50), contactRelation VARCHAR(50),group INT,startDate DATE);
+        (patientID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50),payments INT, familyCode VARCHAR(50),eContact VARCHAR(15),eContactName VARCHAR(50), contactRelation VARCHAR(50),patientGroup INT,startDate DATE);
 
         CREATE TABLE IF NOT EXISTS applicants
         (fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50),phone VARCHAR(15),password VARCHAR(50),role VARCHAR(50),DOB DATE);
@@ -28,7 +28,7 @@
         (Supervisor BIGINT,Doctor BIGINT,CG1 BIGINT,CG2 BIGINT,CG3 BIGINT,CG4 BIGINT,date DATE);
         
         CREATE TABLE IF NOT EXISTS careChecks
-        (patientID INT,mornMeds BOOLEAN,	NoonMeds BOOLEAN,	NightMeds BOOLEAN,	bfast BOOLEAN,	lnch BOOLEAN,	dnr BOOLEAN, appointment BOOLEAN,);
+        (patientID INT,mornMeds BOOLEAN,	NoonMeds BOOLEAN,	NightMeds BOOLEAN,	bfast BOOLEAN,	lnch BOOLEAN,	dnr BOOLEAN, appointment BOOLEAN);
 
         CREATE TABLE IF NOT EXISTS prescriptions
         (empID INT,	PatientID INT,	Medicine VARCHAR(50),	timeToRecieve VARCHAR(50));
@@ -42,7 +42,6 @@
     }
     pg_close($db);
     }
-
 
 
 ?>

@@ -1,5 +1,5 @@
-<?php 
+<?php
 require "dbFunctions.php";
-   dbStart(dbConnect($host, $port, $dbname, $credentials))
-   
+dbStart((dbConnect($host, $port, $dbname, $credentials)));
+
 ?>
