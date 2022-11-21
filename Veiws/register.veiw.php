@@ -7,11 +7,18 @@
 </head>
 
 
+<body>
 <div class="col">
 
 
 <div class="row">
-<p>role</p>  <input type="text">
+
+<label for="roles"> roles</label>
+
+<select name="roles" id="roles">
+  
+</select>
+
 </div>
 
 <div class="row">
@@ -71,6 +78,7 @@
 
 </div>   
 
+</body>
 
 
 
