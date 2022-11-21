@@ -8,6 +8,7 @@
 
 
 <body>
+    <form name="form" action="../Scripts/register.php" method="POST">
 <div class="col">
 
 
@@ -16,29 +17,36 @@
 <label for="roles"> roles</label>
 
 <select name="roles" id="roles">
-  
+    <?php //Uses DOM to fill the selection with all current roles
+        $sql = "SELECT roles FROM roles;";
+        $ret = pg_query($db,$sql);
+        $rows = pg_fetch_all($ret);
+        foreach($rows as $row){
+            echo "<option value=".$row['roles'].">".$row['roles']."</option>";
+        }
+    ?>
 </select>
 
 </div>
 
 <div class="row">
-<p>First Name</p>  <input type="text">
+<p>First Name</p>  <input name="firstName" type="text">
     </div>
 
     <div class="row">
-<p>Last Name</p>  <input type="text">
+<p>Last Name</p>  <input name="lastName" type="text">
     </div>
 
     <div class="row">
-<p>Email ID</p>  <input type="text">
+<p>Email ID</p>  <input name="email" type="email">
     </div>
 
     <div class="row">
-<p>Phone</p>  <input type="text">
+<p>Phone</p>  <input name="phone" type="tel">
     </div>
 
     <div class="row">
-<p>Password</p>  <input type="text">
+<p>Password</p>  <input name="password" type="text">
     </div>
 
 
@@ -77,7 +85,7 @@
 </div>
 
 </div>   
-
+</form>
 </body>
 
 

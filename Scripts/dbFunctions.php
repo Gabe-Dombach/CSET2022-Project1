@@ -19,7 +19,7 @@
         (PatientID BIGINT,emdID BIGINT,date TIMESTAMP,empName VARCHAR(50),patientName VARCHAR(50));
 
         CREATE TABLE IF NOT EXISTS roles
-        (roles VARCHAR(50),level INT);
+        (roles VARCHAR(50) UNIQUE,level INT);
 
         INSERT INTO roles 
         VALUES
@@ -28,7 +28,8 @@
         ('Doctor',3),
         ('careGiver',2),
         ('Patient',1),
-        ('Family',0);
+        ('Family',0)
+        ON CONFLICT DO NOTHING;
 
         CREATE TABLE IF NOT EXISTS Roster
         (Supervisor BIGINT,Doctor BIGINT,CG1 BIGINT,CG2 BIGINT,CG3 BIGINT,CG4 BIGINT,date DATE);
