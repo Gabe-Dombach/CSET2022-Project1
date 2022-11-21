@@ -15,9 +15,6 @@
         CREATE TABLE IF NOT EXISTS patients
         (patientID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50),payments INT, familyCode VARCHAR(50),eContact VARCHAR(15),eContactName VARCHAR(50), contactRelation VARCHAR(50),patientGroup INT,startDate DATE);
 
-        CREATE TABLE IF NOT EXISTS applicants
-        (fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50),phone VARCHAR(15),password VARCHAR(50),role VARCHAR(50),DOB DATE);
-        
         CREATE TABLE IF NOT EXISTS apointments
         (PatientID BIGINT,emdID BIGINT,date TIMESTAMP,empName VARCHAR(50),patientName VARCHAR(50));
 
