@@ -21,6 +21,15 @@
         CREATE TABLE IF NOT EXISTS roles
         (roles VARCHAR(50),level INT);
 
+        INSERT INTO roles 
+        VALUES
+        ('Admin',5),
+        ('Supervisor',4),
+        ('Doctor',3),
+        ('careGiver',2),
+        ('Patient',1),
+        ('Family',0);
+
         CREATE TABLE IF NOT EXISTS Roster
         (Supervisor BIGINT,Doctor BIGINT,CG1 BIGINT,CG2 BIGINT,CG3 BIGINT,CG4 BIGINT,date DATE);
         
