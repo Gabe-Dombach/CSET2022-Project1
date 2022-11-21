@@ -5,31 +5,28 @@
 <link rel="stylesheet" href="css/main-display.css" type="text/css">
 
 </head>
+<body>
+<div class="display" id="loginP">
+    <form class=login action=../Scripts/login.php method="POST">
+        <div class="row">
+            <p>email</p>  <input type="text">
+        </div>
 
-<div class="display" id="loginP"> 
+        <div class="row">
+            <p>password</p>  <input type="text">
+        </div>
 
-    <div class="row">
-<p>email</p>  <input type="text">
-    </div>
+        <div class="row">
+        <input type = submit name="submit"> ok </input>
 
-    <div class="row">
-<p>password</p>  <input type="text">
-    </div>
+        <input type = submit name="cancel"> cancel </input>
+    </form>
 
-    <div class="row">
-<button> ok </button>
-
-<button> cancel </button>
+</div>
 </div>
 
 
 
 
-</div>
-
-
-
-
-
-
+</body>
 </html>
