@@ -25,7 +25,7 @@
         (Supervisor BIGINT,Doctor BIGINT,CG1 BIGINT,CG2 BIGINT,CG3 BIGINT,CG4 BIGINT,date DATE);
         
         CREATE TABLE IF NOT EXISTS careChecks
-        (patientID INT,mornMeds BOOLEAN,	NoonMeds BOOLEAN,	NightMeds BOOLEAN,	bfast BOOLEAN,	lnch BOOLEAN,	dnr BOOLEAN, appointment BOOLEAN);
+        (patientID INT,mornMeds BOOLEAN,	NoonMeds BOOLEAN,	NightMeds BOOLEAN,	bfast BOOLEAN,	lnch BOOLEAN,	dnr BOOLEAN, date DATE);
 
         CREATE TABLE IF NOT EXISTS prescriptions
         (empID INT,	PatientID INT,	Medicine VARCHAR(50),	timeToRecieve VARCHAR(50));
