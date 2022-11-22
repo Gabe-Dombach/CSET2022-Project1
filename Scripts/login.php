@@ -4,7 +4,7 @@
     if(isset($_POST['submit'])){
         $db = dbConnect($host, $port, $dbname, $credentials);
         $email = $_POST['email'];
-        $sql = "select password,role from emp where email ='$email';";
+        $sql = "select password,role,aproved from emp where email ='$email';";
 
         $ret = pg_query($db, $sql);
         $rows = pg_fetch_all($ret);
@@ -12,6 +12,9 @@
         foreach($rows as $row){
             print_r($row);
             if ($row['password'] == $_POST['password']) {
+                if ($row['aproved'] == false) {
+                    header("Location login.php?error=4");
+                }
                 $role = $row['role'];
                 $_SESSION['user'] = $email;
                 $_SESSION['role'] = $row['role'];
