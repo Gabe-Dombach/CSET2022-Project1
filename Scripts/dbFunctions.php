@@ -10,10 +10,10 @@
         
         $sql = " 
         CREATE TABLE IF NOT EXISTS EMP
-        (empID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50),role VARCHAR(50),salary BIGINT,DOB DATE,password VARCHAR(30),phone VARCHAR(15));
+        (empID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50),role VARCHAR(50),salary BIGINT,DOB DATE,password VARCHAR(30),phone VARCHAR(15),aproved BOOLEAN DEFAULT FALSE);
         
         CREATE TABLE IF NOT EXISTS patients
-        (patientID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50),payments INT, familyCode VARCHAR(50),eContact VARCHAR(15),eContactName VARCHAR(50), contactRelation VARCHAR(50),patientGroup INT,startDate DATE);
+        (patientID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50),payments INT, familyCode VARCHAR(50),eContact VARCHAR(15),eContactName VARCHAR(50), contactRelation VARCHAR(50),patientGroup INT,startDate DATE,password VARCHAR(50));
 
         CREATE TABLE IF NOT EXISTS apointments
         (PatientID BIGINT,emdID BIGINT,date TIMESTAMP,empName VARCHAR(50),patientName VARCHAR(50));

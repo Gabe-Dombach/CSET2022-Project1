@@ -58,7 +58,7 @@
 
 <div class="col"> 
     <div class="row">
-<p>Date of birth</p>  <input type="text">
+<p>Date of birth</p>  <input name='dob' type="DATE">
     </div>
 
 
@@ -66,15 +66,18 @@
 
 
     <div class="row">
-<p>Family code (for paitent family member) </p>  <input type="text">
+<p>Family code (for paitent family member) </p>  <input name = "famCode" type="text">
     </div>
 
     <div class="row">
-<p>Emergency contact</p>  <input type="text">
+<p>Emergency contact</p>  <input name="eContact" type="tel">
+    </div>
+        <div class="row">
+<p>Emergency contact Name</p>  <input name="eContactName" type="tel">
     </div>
 
     <div class="row">
-<p>Relation to emergency contact</p>  <input type="text">
+<p>Relation to emergency contact</p>  <input name="relation" type="text">
     </div>
 
     
