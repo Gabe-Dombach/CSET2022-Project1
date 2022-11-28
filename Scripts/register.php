@@ -18,13 +18,42 @@ if (isset($_POST['submit'])){
         $relation = $_POST['relation'];
     }
     if(isset($role)){
+        $sql = "SELECT * FROM patients WHERE email = $email";
+        $ret = pg_query($db,$sql);
+        $check = pg_fetch_all($ret);
+        if(!$check){
+            $date = date("Y-m-d");
         $sql = "INSERT INTO patients
-         (fname,lname,email,familycode,econtact,contactrelation,startdate,password)
+        (fname,lname,email,familycode,econtact,contactrelation,startdate,password)
         VALUES
-        ($fName,$lName,$email,$code,$eCon,$eConName,$relation
+        ($fName,$lName,$email,$code,$eCon,$eConName,$relation,$date,$password)
+        ON CONFLICT DO NOTHING;
         ";
+        }
+        else{
+            header("Location:register.php?error=1");
+        }
+        header("Location:login.php");
+
+    }
+    else{
+        $date = date("Y-m-d");
+        $sql = "SELECT * FROM emp WHERE email = $email";
+        $ret = pg_query($db,$sql);
+        $check = pg_fetch_all($ret);
+        if(!$check){
+        $sql = "INSERT INTO emp
+        (fname,lname,email,role,salary,dob,password,phone,approved)
+        VALUES
+        ($fName,$lName,$email,$role,100000,$DOB,$password,$phone,false)
+        
+        
+        ";}
+        else{
+            header("Location:register.php?error=1");
+        }
+        header("Location:login.php");
     }
 }   
-
 require "../Veiws/register.veiw.php"
 ?>
