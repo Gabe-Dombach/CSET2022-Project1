@@ -82,7 +82,7 @@
 
     
     <div class="row">
-<button> ok </button>
+<input name="submit" type="submit"></input>
 
 <button> cancel </button>
 </div>
