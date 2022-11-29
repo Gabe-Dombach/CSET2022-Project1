@@ -11,20 +11,17 @@
 
 <p> Patient ID </p> 
     <p>
-        <form action="../Scripts/payment.php">
-            <input type="number" name="id">
-            <input type="submit" name
+        <form action="../Scripts/payment.php" METHOD="POST">
+            <input type="number" name="id" REQUIRED>
+            <input type="submit" name="submitID">
         </form>
     </p>
-
-<p>Total Due</p>  <p><?php print($payment);?></p>
+<p>Patient</p><p><?=$patientID;?></p>
+<p>Total Due</p>  <p><?=$payment;?></p>
 
 <form action ="../Scripts/payment.php" method ="POST">
 <p> New Payment </p> <p><input type='num' name='payment'></input></p>
-
 <input type="submit" name="submitPayment" value =PAY></input>
-
-
 </form>
 
 
