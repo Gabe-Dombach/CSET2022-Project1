@@ -10,27 +10,32 @@ if (isset($_POST['submit'])){
     $phone = $_POST['phone'];
     $password = $_POST['password'];
     $DOB = $_POST['dob'];
+    $sql = "SELECT * FROM patients WHERE email = '$email';";
+    $ret = pg_query($db, $sql);
+    $check = pg_fetch_all($ret);
+    $sql = "SELECT * FROM emp WHERE email = '$email';";
+    $ret = pg_query($db, $sql);
+    $check2 = pg_query($db,$sql);
+    if(!$check && !$check2){
 
-    if($role == 'patient'){
+    if($role == 'Patient'){
         $code = $_POST['famCode'];
         $eCon = $_POST['eContact'];
         $eConName = $_POST['eContactName'];
         $relation = $_POST['relation'];
-        $sql = "SELECT * FROM patients WHERE email = '$email'";
-        $ret = pg_query($db,$sql);
-        $check = pg_fetch_all($ret);
-
-        if(!$check){
             $date = date("Y-m-d");
             $sql = "INSERT INTO patients
-            (fname,lname,email,familycode,econtact,contactrelation,startdate,password)
+            (fname,lname,email,familycode,payments,econtact,econtactname,contactrelation,startdate,password)
             VALUES
-            ('$fName','$lName','$email','$code','$eCon','$eConName','$relation','$date','$password')
-            ON CONFLICT DO NOTHING;
+            ('$fName','$lName','$email','$code',0,'$eCon','$eConName','$relation','$date','$password');
             ";
-            pg_query($db,$sql);
-            header("Location:login.php");
 
+            $ret = pg_query($db, $sql);
+            if (!$ret) {
+                echo $ret;
+            } else {
+                header("Location:login.php");
+            }
         }
 
         else{
@@ -63,6 +68,9 @@ if (isset($_POST['submit'])){
         }
         
     }
-}   
+}
+else{
+    echo"User Already Exists";
+}
 require "../Veiws/register.veiw.php"
 ?>
