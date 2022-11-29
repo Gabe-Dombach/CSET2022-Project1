@@ -4,7 +4,7 @@
         $_SESSION['patid'] = false;
     }
     require("dbFunctions.php");
-    if(!isset($_SESSION['user'])){
+    if(!isset($_SESSION['user']) || $_SESSION['user'] != 'Admin'){
          header("Location:login.php?error=Please login before acsessing payments");
      }
     $patientID = 0;

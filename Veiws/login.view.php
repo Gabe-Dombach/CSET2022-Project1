@@ -20,7 +20,11 @@
         <input type = submit name="submit"> ok </input>
 
         <input type = submit name="cancel"> cancel </input>
+      
     </form>
+      <h2><?php if( isset($_GET['error'])){
+            echo $_GET['error'];
+        }; ?></h2>
 
 </div>
 </div>
