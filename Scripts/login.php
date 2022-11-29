@@ -23,8 +23,7 @@
                     header("Location:adminReport.php");
                 } else if ($role == 'Doctor') {
                     header("Location:DoctorHeport.php");
-                } else if ($role == "Patient") {
-                    header("Location:patientHome.php");
+
                 } else if ($role == "Family") {
                     header("Location:familyHome.php");
                 } else if ($role == 'Applicant') {
