@@ -12,11 +12,18 @@
 <p> Patient ID </p> 
     <p>
         <form action="../Scripts/payment.php" METHOD="POST">
-            <input type="number" name="id" REQUIRED>
+            <input type="number" name="id" value=
+            <?php 
+            if (!isset($_SESSION['patid'])) {
+                echo"";
+                }
+            else{
+                echo $_SESSION['patid'];}?> 
+                REQUIRED>
             <input type="submit" name="submitID">
         </form>
     </p>
-<p>Patient</p><p><?=$patientID;?></p>
+
 <p>Total Due</p>  <p><?=$payment;?></p>
 
 <form action ="../Scripts/payment.php" method ="POST">

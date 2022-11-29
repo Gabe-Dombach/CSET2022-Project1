@@ -1,8 +1,9 @@
 <?php
     session_start();
     if(!isset($_SESSION['patid'])){
-        $_SESSION['patid'] = false;
+        $_SESSION['patid'] = "";
     }
+    else{$id = $_SESSION['patid'];}
     require("dbFunctions.php");
     if(!isset($_SESSION['user']) || $_SESSION['role'] != 'Admin'){
        
@@ -26,7 +27,7 @@
             $payment = $rows[0]['payments'];
     }
     if(isset($_POST['submitPayment'])){
-        if( $_SESSION['patid'] == false){
+        if( $_SESSION['patid'] == ""){
             header("Location:payment.php?error=Please Enter a Patient ID");
         }
         $id = $_SESSION['patid'];
