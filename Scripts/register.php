@@ -11,7 +11,7 @@ if (isset($_POST['submit'])){
     $password = $_POST['password'];
     $DOB = $_POST['dob'];
 
-    if($role == 'patient'){
+    if($role == 'Patient'){
         $code = $_POST['famCode'];
         $eCon = $_POST['eContact'];
         $eConName = $_POST['eContactName'];
@@ -23,14 +23,17 @@ if (isset($_POST['submit'])){
         if(!$check){
             $date = date("Y-m-d");
             $sql = "INSERT INTO patients
-            (fname,lname,email,familycode,econtact,contactrelation,startdate,password)
+            (fname,lname,email,familycode,payments,econtact,econtactname,contactrelation,startdate,password)
             VALUES
-            ('$fName','$lName','$email','$code','$eCon','$eConName','$relation','$date','$password')
-            ON CONFLICT DO NOTHING;
+            ('$fName','$lName','$email','$code',0,'$eCon','$eConName','$relation','$date','$password');
             ";
-            pg_query($db,$sql);
-            header("Location:login.php");
 
+            $ret = pg_query($db, $sql);
+            if (!$ret) {
+                echo $ret;
+            } else {
+                header("Location:login.php");
+            }
         }
 
         else{
