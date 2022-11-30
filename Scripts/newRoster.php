@@ -13,7 +13,33 @@ if(!isset($_SESSION['user']) || ($_SESSION['role'] != 'Admin' && $_SESSION['role
 $db = dbConnect($host, $port, $dbname, $credentials);
 
 if(isset($_POST['submit'])){
-    
+    $date = $_POST['date'];
+    $sql = "SELECT date FROM roster WHERE date = '$date'";
+    $ret = pg_query($db, $sql);
+    $check = pg_fetch_array($ret);
+    if(!$check){
+        $cg1 = $_POST['c1'];
+        $cg2 = $_POST['c2'];
+        $cg3 = $_POST['c3'];
+        $cg4 = $_POST['c4'];
+        $Supervisor = $_POST['sup'];
+        $Doctor = $_POST['doc'];
+        $sql = "
+        INSERT INTO Roster
+        VALUES
+        ($Supervisor,$Doctor,$cg1,$cg2,$cg3,$cg4,'$date');
+        ";
+        $ret = pg_query($db, $sql);
+        if(!$ret){
+            echo pg_last_error($db);
+            exit();
+        }
+        else{
+            echo "Roster Inserted";
+        }
+
+    }
+
 }
 
 require("../Veiws/newRoster.veiw.php");

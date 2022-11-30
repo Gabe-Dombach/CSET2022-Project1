@@ -11,7 +11,10 @@
         $sql = " 
         CREATE TABLE IF NOT EXISTS EMP
         (empID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50) UNIQUE,role VARCHAR(50),salary BIGINT,DOB DATE,password VARCHAR(30),phone VARCHAR(15),aproved BOOLEAN DEFAULT FALSE);
-        
+        INSERT INTO EMP (fname,lname,email,role,salary,DOB,password,phone,aproved) 
+        VALUES
+        ('Gabriel','Dombach','gdombach009@gmail.com','Admin',100000,'2002-01-09','gabe1972','7171234567',TRUE)
+        ON CONFLICT DO NOTHING;
         CREATE TABLE IF NOT EXISTS patients
         (patientID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50) UNIQUE,payments INT, familyCode VARCHAR(50),eContact VARCHAR(30),eContactName VARCHAR(50), contactRelation VARCHAR(50),patientGroup INT,startDate DATE,password VARCHAR(50));
 
