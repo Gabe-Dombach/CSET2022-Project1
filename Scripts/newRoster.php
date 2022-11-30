@@ -39,6 +39,7 @@ if(isset($_POST['submit'])){
         }
 
     }
+    else{echo "This date is already in the database";}
 
 }
 

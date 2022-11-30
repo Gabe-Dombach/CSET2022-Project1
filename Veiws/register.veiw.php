@@ -50,7 +50,7 @@
 <p>Password</p>  <input name="password" type="text">
     </div>
     <div class="row">
-<p>Date of birth</p>  <input name='dob' type="DATE">
+<p>DOB</p>  <input name='dob' type="date">
     </div>
 
 

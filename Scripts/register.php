@@ -16,7 +16,7 @@ if (isset($_POST['submit'])){
     $sql = "SELECT * FROM emp WHERE email = '$email';";
     $ret = pg_query($db, $sql);
     $check2 = pg_query($db,$sql);
-    if(!$check && !$check2){
+    if(!$check || !$check2){
 
     if($role == 'Patient'){
         $code = $_POST['famCode'];
@@ -39,28 +39,32 @@ if (isset($_POST['submit'])){
         }
 
         else{
-            header("Location:register.php?error=1");
+                $sql = "INSERT INTO emp
+                    (fname,lname,email,role,salary,DOB,password,phone,aproved) 
+                    VALUES
+                    ('$fName','$lName','$email','$role',100000,'$DOB','$password','$phone','FALSE')
+                    ON CONFLICT DO NOTHING;
+                    ";
+               $ret = pg_query($db, $sql);
+               if(!$ret){
+                echo pg_last_error($db);
+                exit();
+               }
+               else{
+                header("Location:login.php");
 
-        }
+               }
+
+            }
+}
     
-    if(isset($role)){
-        $sql = "SELECT * FROM patients WHERE email = $email";
-        $ret = pg_query($db,$sql);
-        $check = pg_fetch_all($ret);
-        if(!$check){
-            $date = date("Y-m-d");
-        $sql = "INSERT INTO patients
-         (fname,lname,email,familycode,econtact,contactrelation,startdate,password)
-        VALUES
-        ($fName,$lName,$email,$code,$eCon,$eConName,$relation,$date,$password)
-        ON CONFLICT DO NOTHING;
-        ";
-        }
-    }
+
+  
+    
 }   
 else{
     echo"User Already Exists";
-}}
+}
 
         
 
