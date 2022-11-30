@@ -16,18 +16,14 @@
         ('Admin','Admin','Admin@gmail.com','Admin',100000,'2002-01-09','password','7171234567',TRUE),
         ('Supervisor','Supervisor','Supervisor@gmail.com','Supervisor',100000,'2002-01-09','password','7171234567',TRUE),
         ('CG1','CG1','CG1','CG1',100000,'2002-01-09','password','7171234567',TRUE),
-        ('Family','Family','Family@gmail.com','Family',100000,'2002-01-09','password','7171234567',TRUE);
-
-
-
-
+        ('Family','Family','Family@gmail.com','Family',100000,'2002-01-09','password','7171234567',TRUE)
         ON CONFLICT DO NOTHING;
         CREATE TABLE IF NOT EXISTS patients
         (patientID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50) UNIQUE,payments INT, familyCode VARCHAR(50),eContact VARCHAR(30),eContactName VARCHAR(50), contactRelation VARCHAR(50),patientGroup INT,startDate DATE,password VARCHAR(50));
         INSERT INTO patients
             (fname,lname,email,familycode,payments,econtact,econtactname,contactrelation,startdate,password)
             VALUES
-            ('patient','patient','patient@gmail.com','12345',0,'123-456-7890','family',family','2020-01-01','password');
+            ('patient','patient','patient@gmail.com','12345',0,'123-456-7890','family','family','2020-01-01','password');
         CREATE TABLE IF NOT EXISTS apointments
         (PatientID BIGINT,emdID BIGINT,date TIMESTAMP,empName VARCHAR(50),patientName VARCHAR(50));
 
