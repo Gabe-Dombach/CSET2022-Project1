@@ -5,7 +5,7 @@
     }
     else{$id = $_SESSION['patid'];}
     require("dbFunctions.php");
-    if(!isset($_SESSION['user']) || $_SESSION['role'] != 'Admin'){
+    if(!isset($_SESSION['user']) || $_SESSION['level'] != '4'){
        
          header("Location:login.php?error=Please login before acsessing payments");
      }

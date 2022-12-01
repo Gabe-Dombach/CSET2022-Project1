@@ -14,8 +14,9 @@
         INSERT INTO EMP (fname,lname,email,role,salary,DOB,password,phone,aproved) 
         VALUES
         ('Admin','Admin','Admin@gmail.com','Admin',100000,'2002-01-09','password','7171234567',TRUE),
+        ('Doctor','Doctor','Doctor@gmail.com','Doctor',100000,'2002-01-09','password','7171234567',TRUE),
         ('Supervisor','Supervisor','Supervisor@gmail.com','Supervisor',100000,'2002-01-09','password','7171234567',TRUE),
-        ('CG1','CG1','CG1','CG1',100000,'2002-01-09','password','7171234567',TRUE),
+        ('CG1','CG1','CG1@gmail.com','careGiver',100000,'2002-01-09','password','7171234567',TRUE),
         ('Family','Family','Family@gmail.com','Family',100000,'2002-01-09','password','7171234567',TRUE)
         ON CONFLICT DO NOTHING;
         CREATE TABLE IF NOT EXISTS patients
@@ -23,7 +24,8 @@
         INSERT INTO patients
             (fname,lname,email,familycode,payments,econtact,econtactname,contactrelation,startdate,password)
             VALUES
-            ('patient','patient','patient@gmail.com','12345',0,'123-456-7890','family','family','2020-01-01','password');
+            ('patient','patient','patient@gmail.com','12345',0,'123-456-7890','family','family','2020-01-01','password')
+            ON CONFLICT DO NOTHING;
         CREATE TABLE IF NOT EXISTS apointments
         (PatientID BIGINT,emdID BIGINT,date TIMESTAMP,empName VARCHAR(50),patientName VARCHAR(50));
 
@@ -32,7 +34,7 @@
 
         INSERT INTO roles 
         VALUES
-        ('Admin',5),
+        ('Admin',4),
         ('Supervisor',4),
         ('Doctor',3),
         ('careGiver',2),
@@ -58,6 +60,6 @@
     }
     pg_close($db);
     }
-
+    
 
 ?>
