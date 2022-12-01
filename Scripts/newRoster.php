@@ -1,14 +1,14 @@
 <?php 
 session_start();
 require("dbFunctions.php");
-if(!isset($_SESSION['user']) || ($_SESSION['role'] != 'Admin' && $_SESSION['role'] != 'Supervisor')){
+if(!isset($_SESSION['user']) || $_SESSION['level'] != '4'){
     if(isset($_SESSION['user'])){
         unset($_SESSION['user']);
         if(isset($_SESSION['role'])){
             unset($_SESSION['role']);
         }
     }
-    header("Location:login.php?error=Administrator privlages required to veiw this page!");
+    header("Location:login.php?error=Administrator privlages required to acess newRoster!");
 }
 $db = dbConnect($host, $port, $dbname, $credentials);
 

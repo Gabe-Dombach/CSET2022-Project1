@@ -7,6 +7,10 @@
         $sql = "select password,role,aproved from emp where email ='$email';";
 
         $ret = pg_query($db, $sql);
+        if(!$ret){
+            echo pg_last_error($db);
+            exit();
+        }
         $rows = pg_fetch_all($ret);
 
         foreach($rows as $row){
@@ -15,7 +19,17 @@
                 if ($row['aproved'] == false) {
                     header("Location login.php?error=4");
                 }
+                
                 $role = $row['role'];
+                $sql = "SELECT level from roles WHERE roles = '$role';";
+                $ret = pg_query($db, $sql);
+                if(!$ret){
+                    echo pg_last_error($db);
+                    exit();
+                }
+                $acesss_levels = pg_fetch_all($ret);
+                $level = $acesss_levels[0]['level'];
+                $_SESSION['level'] = $level;
                 $_SESSION['user'] = $email;
                 $_SESSION['role'] = $row['role'];
 

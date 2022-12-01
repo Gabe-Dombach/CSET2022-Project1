@@ -39,29 +39,23 @@ if (isset($_POST['submit'])){
         }
 
         else{
-                $sql = "INSERT INTO emp
+            $sql = "INSERT INTO emp
                     (fname,lname,email,role,salary,DOB,password,phone,aproved) 
                     VALUES
                     ('$fName','$lName','$email','$role',100000,'$DOB','$password','$phone','FALSE')
                     ON CONFLICT DO NOTHING;
                     ";
-               $ret = pg_query($db, $sql);
-               if(!$ret){
+            $ret = pg_query($db, $sql);
+            if(!$ret){
                 echo pg_last_error($db);
                 exit();
-               }
-               else{
-                header("Location:login.php");
-
-               }
-
             }
-}
-    
+            else{
+            header("Location:login.php");
+            }
 
-  
-    
-}   
+        }
+}}   
 else{
     echo"User Already Exists";
 }
