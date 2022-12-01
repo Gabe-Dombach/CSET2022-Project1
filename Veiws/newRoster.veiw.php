@@ -2,7 +2,7 @@
  
 <body>
 <form action="../Scripts/newRoster.php" method="POST">
-<p>Date</p> <input name="date" type="date"></input>
+<p>Date</p> <input name="date" type="date" value=<?php echo date('Y-m-d'); ?>></input>
 
 <p>Supervisor</p>  <label for="sup"> </label>
 <select name="sup" id="sup"><?php
