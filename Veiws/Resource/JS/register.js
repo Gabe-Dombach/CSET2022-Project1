@@ -1,14 +1,18 @@
 $(document).ready(function () {
-    $('.patientOnly').css({ display: 'none' });
+
+    $('.patientOnly').css({ visibility: 'hidden' });
+
 });
 $('#roles').change(function () {
     let role = $(this).children('option').filter(':selected').text();
     if (role == 'Patient') {
         console.log('visible');
-        $('.patientOnly').css({ display:'block'});
+
+        $('.patientOnly').css({ visibility: 'visible' });
     } else {
         console.log('invisible');
 
-        $('.patientOnly').css({ display: 'none' });
+        $('.patientOnly').css({ visibility: 'hidden' });
+
     }
 });

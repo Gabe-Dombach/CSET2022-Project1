@@ -19,9 +19,7 @@
 <label for="roles"> roles</label>
 
 <select id="roles" name="roles" id="roles">
-    
 
-    
     <?php //Uses DOM to fill the selection with all current roles
         
         /*
@@ -61,27 +59,35 @@
 <p class="space1">Password</p>  <input name="password" type="text" class="inputS1">
     </div>
     <div class="row">
-<p class="space1">DOB</p>  <input name='dob' type="date" class="inputS1">
+
+<p>DOB</p>  <input name='dob' type="date">
+    </div>
+
+
+
     </div>
 
 
 
 
+<div class="col"> 
 
 
     <div class="row">
-<p class="patientOnly">Family code (for paitent family member) </p>  <input class="patientOnly" name = "famCode" type="text" class="inputS1">
+
+<p class="patientOnly">Family code (for paitent family member) </p>  <input class="patientOnly" name = "famCode" type="text">
     </div>
 
     <div class="row">
-<p class="patientOnly">Emergency contact</p>  <input class="patientOnly" name="eContact" type="tel" class="inputS1">
+<p class="patientOnly">Emergency contact</p>  <input class="patientOnly" name="eContact" type="tel">
     </div>
         <div class="row">
-<p class="patientOnly">Emergency contact Name</p>  <input class="patientOnly" name="eContactName" type="tel" class="inputS1">
+<p class="patientOnly">Emergency contact Name</p>  <input class="patientOnly" name="eContactName" type="tel">
     </div>
 
     <div class="row">
-<p class="patientOnly">Relation to emergency contact</p>  <input class="patientOnly" name="relation" type="text" class="inputS1">
+<p class="patientOnly">Relation to emergency contact</p>  <input class="patientOnly" name="relation" type="text">
+
     </div>
 
     
