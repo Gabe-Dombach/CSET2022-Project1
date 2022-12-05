@@ -8,7 +8,7 @@
     $db = dbConnect($host, $port, $dbname, $credentials);
 
     if(isset($_POST['submit'])){
-        $sql="select empid FROM emp WHERE aproved = FALSE";
+        $sql="select empid,fname FROM emp WHERE aproved = FALSE";
         $ret = pg_query($db,$sql);
         $rows = pg_fetch_all($ret);
         foreach($rows as $row){
@@ -21,7 +21,19 @@
                 echo pg_last_error($db);
                 exit();
             }
-            echo "Users Aproved";
+            echo "User ".$row['fname']." Aproved";
+        }
+        else if(isset($_POST['!'.$row['empid']])){
+            $id = $row['empid'];
+            $sql = "DELETE FROM emp WHERE empid = $id";
+            $ret = pg_query($db,$sql);
+            
+            if(!$ret){
+                echo pg_last_error($db);
+                exit();
+            }
+            echo "User " . $row['fname'] . " Denied";
+
         }
         }
     }

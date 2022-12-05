@@ -18,7 +18,7 @@
             }
             $rows = pg_fetch_all($ret);
             foreach($rows as $row){
-                echo "<li>".$row['fname']." ".$row['lname']. "Role:".$row['role']."<input type=checkbox name=".$row['empid']." value=".$row['empid']."</input></li>";
+                echo "<li>".$row['fname']." ".$row['lname']. "Role:".$row['role']."<input type=checkbox name=".$row['empid']." value=".$row['empid']."</input><input type=checkbox name=!".$row['empid']." value=".$row['empid']."</input></li>";
             }
             
             ?>
