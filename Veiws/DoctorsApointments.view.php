@@ -6,18 +6,22 @@
 </head>
 <body>
 
-
+<form action="../Scripts/DoctorsApointments.php" method="POST">
 <div class="row">
-<p>patient ID</p>  <input type="text" id="patientId" onkeyup="updateIdField()">
+<p>patient ID</p>  <input type="text" name="patientId" id="patientId" onkeyup="updateIdField()">
     </div>
 
     <div class="row">
-<p>Date</p>  <input type="date" id="dateInput" value="<?=date("Y-m-d")?>">
+<p>Date</p>  <input type="date" name="dateInput" id="dateInput" value="<?=date("Y-m-d")?>" onchange="changed()"">
     </div>
 
     <div class="row">
-<p> Doctor </p>  <select name="cars" id="cars">
-  
+<p> Doctor </p>  <select name="doctors" id="doctors">
+    <option value="_"></option>
+    <?php foreach($_SESSION['docs'] as $doctor){
+        echo "<option value=".$doctor['empname'].">".$doctor['empname']."</option>";
+    }?>
+    
 </select>
     </div>
 
@@ -26,21 +30,33 @@
     </div>
 
     <div class="row">
-<button> ok </button>
+    <input type="submit" name="submit" value="ok">
 
-<button> cancel </button>
+    <button onclick="clearFields()"> cancel </button>
 </div>
+</form> 
 
 <script>
     let idInput = document.getElementById("patientId");
     let dateInput = document.getElementById("dateInput");
     let patientName = document.getElementById("patientName");
+    let doctorsList = document.getElementById("doctors");
+    let patients= <?php echo json_encode($patients); ?>;
+
+    console.log(idInput.value)
+    console.log(dateInput.value)
+    console.log(doctorsList.innerHTML)
     function updateIdField() {
-        var patients= <?php echo json_encode($patients); ?>;
-        console.log(patients)
-        var currPatient = patients.find(({ 0: n }) => n === idInput.value);
-        var currPatientName = ""+currPatient[2]+", "+currPatient[1];
+        let currPatient = patients.filter( i => i["patientid"] == idInput.value );
+        console.log(currPatient)
+        let currPatientName = ""+currPatient[0]["lname"]+", "+currPatient[0]["fname"];
         patientName.value = currPatientName;
+    }
+    function clearFields() {
+        idInput.value = "";
+        dateInput.value = "";
+        patientName.value = "";
+        doctorsList.innerHTML = "";
     }
 </script>
     
