@@ -1,4 +1,5 @@
 <html>
+    <?php require "navbar.veiw.php";?>
 
 
 <P>Id</P> <P></P>

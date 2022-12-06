@@ -1,8 +1,7 @@
 <?php 
 session_start();
-if(!isset($_SESSION['user'])){
-    header('Location:login.php?error=You must be logged in to veiw the roster!!');
-}
+
+
 require("dbFunctions.php");
 $db = dbConnect($host, $port, $dbname, $credentials);
 if (isset($_POST['submit'])){

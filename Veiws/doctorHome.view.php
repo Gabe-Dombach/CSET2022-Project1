@@ -1,5 +1,6 @@
 <html>
- 
+     <?php require "navbar.veiw.php";?>
+
 <p>Name</p> <p></p>
 
 <p>Date</p> <p></p>

@@ -25,9 +25,9 @@ if (isset($_POST['submit'])){
         $relation = $_POST['relation'];
             $date = date("Y-m-d");
             $sql = "INSERT INTO patients
-            (fname,lname,email,familycode,payments,econtact,econtactname,contactrelation,startdate,password)
+            (fname,lname,email,familycode,payments,econtact,econtactname,contactrelation,startdate,lastPayment,password)
             VALUES
-            ('$fName','$lName','$email','$code',0,'$eCon','$eConName','$relation','$date','$password');
+            ('$fName','$lName','$email','$code',0,'$eCon','$eConName','$relation','$date','$date','$password');
             ";
 
             $ret = pg_query($db, $sql);
