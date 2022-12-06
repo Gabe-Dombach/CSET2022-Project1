@@ -55,9 +55,6 @@
     if(!$ret){
         echo pg_last_error($db);
     }
-    else{
-        Echo "TABLES CREATED SUCCESSFULLY\n";
-    }
     pg_close($db);
     }
     

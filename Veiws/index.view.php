@@ -3,26 +3,27 @@
 
 
 
-
-
 <html>
 
 <head>
+<style>
 
-<link rel="stylesheet" href="css/main-display.css" type="text/css">
+</style>
+    <link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
 
 </head>
 <body>
         <?php require "navbar.veiw.php";?>
-    <div class="display" id="homeP"> 
+    <div class="displayHome" id="homeP"> 
+    <h1>Home Page</h1>
+        <a id ="homeATags" href="../Scripts/login.php"> Login </a>
 
-<a href="../Scripts/login.php"> Login </a>
-
-<a href="../Scripts/register.php"> register </a>
+        <a id ="homeATags" href="../Scripts/register.php"> register </a>
+        </div>
 </body>
 
 
-</div>
+
 
 
 
