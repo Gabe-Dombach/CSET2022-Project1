@@ -7,6 +7,7 @@
     <title>registration Check</title>
 </head>
 <body>
+    <?php require "navbar.veiw.php";?>
     <form action="../Scripts/regcheck.php" method="POST">
         <ul>
             <?php 

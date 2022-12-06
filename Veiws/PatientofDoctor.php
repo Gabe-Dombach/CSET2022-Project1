@@ -1,6 +1,7 @@
 <html>
 
 <body>
+        <?php require "navbar.veiw.php";?>
 
 <p>Date</p> <Input type="text"></Input>
 

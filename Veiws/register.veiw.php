@@ -9,6 +9,7 @@
 
 
 <body>
+<?php require "navbar.veiw.php";?>
 
 <div class="display" >
     <form name="form" action="../Scripts/register.php" method="POST">
@@ -19,22 +20,14 @@
 <label for="roles"> roles</label>
 
 <select id="roles" name="roles" id="roles">
-
     <?php //Uses DOM to fill the selection with all current roles
-        
-        /*
-
         $sql = "SELECT roles FROM roles;";
         $ret = pg_query($db,$sql);
         $rows = pg_fetch_all($ret);
         foreach($rows as $row){
             echo "<option value=".strval($row['roles']).">".strval($row['roles'])."</option>";
         }
-*/
-        
     ?>
-
-
 </select>
 
 </div>

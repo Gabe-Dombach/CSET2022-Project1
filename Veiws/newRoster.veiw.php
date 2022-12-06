@@ -1,6 +1,8 @@
 <html>
  
 <body>
+            <?php require "navbar.veiw.php";?>
+
 <form action="../Scripts/newRoster.php" method="POST">
 <p>Date</p> <input name="date" type="date" value=<?php echo date('Y-m-d'); ?>></input>
 

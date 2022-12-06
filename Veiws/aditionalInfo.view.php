@@ -6,6 +6,7 @@
 
 </head>
 <body>
+    <?php require "navbar.veiw.php";?>
 
 
 <div class="row">

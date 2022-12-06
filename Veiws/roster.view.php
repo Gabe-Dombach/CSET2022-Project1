@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    <?php require "navbar.veiw.php";?>
 
     <form action="../Scripts/roster.php" method="post">
     <p> date </p><input id="date" type="date" name="date" value=<?php echo date('Y-m-d'); ?>>

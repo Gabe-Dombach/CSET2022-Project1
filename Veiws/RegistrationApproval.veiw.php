@@ -1,6 +1,8 @@
 <html>
  
 <body>
+  <?php require "navbar.veiw.php";?>
+
 <Input type="text"> </Input> <Input type="text"></Input>
 
 <input type="checkbox" id="yes" name="yesbox" value="yes">

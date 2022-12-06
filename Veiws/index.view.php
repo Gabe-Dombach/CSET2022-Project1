@@ -12,12 +12,15 @@
 <link rel="stylesheet" href="css/main-display.css" type="text/css">
 
 </head>
+<body>
+        <?php require "navbar.veiw.php";?>
+    <div class="display" id="homeP"> 
 
-<div class="display" id="homeP"> 
+<a href="../Scripts/login.php"> Login </a>
 
-<button> Login </button>
+<a href="../Scripts/register.php"> register </a>
+</body>
 
-<button> register </button>
 
 </div>
 
