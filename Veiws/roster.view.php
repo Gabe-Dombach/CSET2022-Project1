@@ -17,106 +17,104 @@
     <input type="submit" value="Check_Date" name="submit">
     </form>
     <div>
-        <p>Supervisor</p>
-        <p>
-            <?php
-if (isset($cg1)) {
-    $sql = "SELECT fname FROM emp WHERE empid = '$Supervisor'";
-    $ret = pg_query($db, $sql);
-    if (!$ret) {
-        echo pg_last_error($db);
-        exit();
-    }
-    $rows = pg_fetch_all($ret);
-    echo $rows[0]['fname'];
-} else {echo "No Date Selected";}
-?>
-        </p>
-    </div>
+        <table>
+            <tr>
+                <th>Supervisor</th>
+                <th>Doctor</th>
+                <th>Caregiver 1</th>
+                <th>Caregiver 2</th>
+                <th>Caregiver 3</th>
+                <th>Caregiver 4</th>
+            </tr>
+            <tr>
+                <td>
+                    <?php
+                        if (isset($cg1)) {
+                            $sql = "SELECT fname FROM emp WHERE empid = '$Supervisor'";
+                            $ret = pg_query($db, $sql);
+                            if (!$ret) {
+                                echo pg_last_error($db);
+                                exit();
+                            }
+                            $rows = pg_fetch_all($ret);
+                            echo $rows[0]['fname'];
+                        } 
+                        else {echo "No Date Selected";}
+                    ?>
+        </td>
+            <td>
+                <?php 
+                    if (isset($cg1)) {
+                        $sql = "SELECT fname FROM emp WHERE empid = '$Doctor'";
+                        $ret = pg_query($db, $sql);
+                        if (!$ret) {
+                            echo pg_last_error($db);
+                            exit();
+                        }
+                        $rows = pg_fetch_all($ret);
+                        echo $rows[0]['fname'];
+                } else {echo "No Date Selected";}
+                ?>
+            </td>
+        <td>
+            <?php 
+                if (isset($cg1)) {
+                    $sql = "SELECT fname FROM emp WHERE empid = '$cg1'";
+                    $ret = pg_query($db, $sql);
+                    if (!$ret) {
+                        echo pg_last_error($db);
+                        exit();
+                    }
+                    $rows = pg_fetch_all($ret);
+                    echo $rows[0]['fname'];
+                } 
+                else 
+                    {echo "No Date Selected";}
+            ?>
+        </td>
+        
+        <td>
+            <?php 
+                if (isset($cg1)) {       
+                    $sql = "SELECT fname FROM emp WHERE empid = '$cg2'";
+                    $ret = pg_query($db, $sql);
+                    if (!$ret) {echo pg_last_error($db);exit();}
+                    $rows = pg_fetch_all($ret);
+                    echo $rows[0]['fname'];
+                } 
+                else {echo "No Date Selected";}
+            ?>
+        </td>
 
-    <div>
-        <p>Doctor</p>
-        <p>
-            <?php if (isset($cg1)) {
-    $sql = "SELECT fname FROM emp WHERE empid = '$Doctor'";
-    $ret = pg_query($db, $sql);
-    if (!$ret) {
-        echo pg_last_error($db);
-        exit();
-    }
-    $rows = pg_fetch_all($ret);
-    echo $rows[0]['fname'];
-} else {echo "No Date Selected";}
-?>
-        </p>
-    </div>
+         <td>
+            <?php 
+                if (isset($cg1)) {
+                    $sql = "SELECT fname FROM emp WHERE empid = '$cg3'";
+                    $ret = pg_query($db, $sql);
+                    if (!$ret) {echo pg_last_error($db);exit();}
+                    $rows = pg_fetch_all($ret);
+                    echo $rows[0]['fname'];
+                }               
+                else {echo "No Date Selected";}
+                ?>
+        </td>
 
-    <div>
-        <p> Caregiver 1</p>
-        <p>
-            <?php if (isset($cg1)) {
-    $sql = "SELECT fname FROM emp WHERE empid = '$cg1'";
-    $ret = pg_query($db, $sql);
-    if (!$ret) {
-        echo pg_last_error($db);
-        exit();
-    }
-    $rows = pg_fetch_all($ret);
-    echo $rows[0]['fname'];
-} else {echo "No Date Selected";}
-?>
-        </p>
-    </div>
+        <td>
+            <?php 
+                if (isset($cg1)) {
+                    $sql = "SELECT fname FROM emp WHERE empid = '$cg4'";
+                    $ret = pg_query($db, $sql);
+                    if (!$ret) {echo pg_last_error($db);exit();}
+                    $rows = pg_fetch_all($ret);
+                    echo $rows[0]['fname'];
+                }
+                else {echo "No Date Selected";}
+            ?>
+        </td>
+            </tr>
+        </table>
 
-    <div>
-        <p> Caregiver 2 </p>
-        <p>
-            <?php if (isset($cg1)) {
-    $sql = "SELECT fname FROM emp WHERE empid = '$cg2'";
-    $ret = pg_query($db, $sql);
-    if (!$ret) {
-        echo pg_last_error($db);
-        exit();
-    }
-    $rows = pg_fetch_all($ret);
-    echo $rows[0]['fname'];
-} else {echo "No Date Selected";}
-?>
-        </p>
-    </div>
-
-    <div>
-        <p> Caregiver 3 </p>
-        <p>
-            <?php if (isset($cg1)) {
-    $sql = "SELECT fname FROM emp WHERE empid = '$cg3'";
-    $ret = pg_query($db, $sql);
-    if (!$ret) {
-        echo pg_last_error($db);
-        exit();
-    }
-    $rows = pg_fetch_all($ret);
-    echo $rows[0]['fname'];
-} else {echo "No Date Selected";}
-?>
-        </p>
-    </div>
-
-    <div>
-        <p> Caregiver 4 </p>
-        <p>
-            <?php if (isset($cg1)) {
-    $sql = "SELECT fname FROM emp WHERE empid = '$cg4'";
-    $ret = pg_query($db, $sql);
-    if (!$ret) {
-        echo pg_last_error($db);
-        exit();
-    }
-    $rows = pg_fetch_all($ret);
-    echo $rows[0]['fname'];
-} else {echo "No Date Selected";}
-?>
-        </p>
+        
     </div>
 </body>
 

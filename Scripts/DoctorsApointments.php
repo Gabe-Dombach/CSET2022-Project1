@@ -7,6 +7,7 @@ session_start();
     else{$id = $_SESSION['patid'];}
 
     require("dbFunctions.php");
+
     if (!isset($_SESSION['user']) || $_SESSION['level'] != '4') {
         if (isset($_SESSION['user'])) {
             unset($_SESSION['user']);
