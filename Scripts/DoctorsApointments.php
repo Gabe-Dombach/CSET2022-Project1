@@ -7,9 +7,9 @@ session_start();
     else{$id = $_SESSION['patid'];}
 
     require("dbFunctions.php");
-    // if(!isset($_SESSION['user']) || $_SESSION['role'] != 'Admin'){
-    //      header("Location:login.php?error=Please login before accessing appointments");
-    // }
+     if(!isset($_SESSION['user']) || $_SESSION['role'] != 'Admin'){
+         header("Location:login.php?error=Please login before accessing appointments");
+     }
     $db = dbConnect($host, $port, $dbname, $credentials);
 
     

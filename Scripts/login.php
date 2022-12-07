@@ -34,12 +34,12 @@
               
                 $_SESSION['role'] = $row['role'];
                 
-                if ($role == 'admin' || $role = "Supervisor") {
+                if ($level = '4') {
                     header("Location:adminReport.php");
                 } else if ($role == 'Doctor') {
                     header("Location:DoctorHeport.php");
 
-                } else if ($role == "Family") {
+                } else if ($level == "0") {
                     header("Location:familyHome.php");
                 }
                 } else {header("Location:login.php?error=1");}
@@ -59,17 +59,9 @@ $rows = pg_fetch_all($ret);
             if ($row['password'] == $_POST['password']) {
                 $_SESSION['user'] = $email;
                 $_SESSION['role'] = 'Patient';
-                header("Location:patientHome.php");
-            }
-        }
+                header("Location:patientHome.php");}}
 echo "Incorrect User Name or Password\n";
-
 pg_close($db);
-        
-
     }
-
-
-
     require "../Veiws/login.view.php";
 ?>
