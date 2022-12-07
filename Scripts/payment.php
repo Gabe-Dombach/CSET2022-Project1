@@ -66,6 +66,8 @@ function dateDiffInDays($date1, $date2)
         $rows= pg_fetch_all($ret);
         foreach($rows as $row){
             $lastPayment = $row['lastpayment'];
+            echo $lastPayment;
+            $lastPayment = date("Y-m-d",strtotime($row['lastpayment']));
             if($lastPayment != date("Y-m-d")){
             $id = intval($row['patientid']);
             $payments = 10 * intval(dateDiffInDays(date("Y-m-d"),$lastPayment));

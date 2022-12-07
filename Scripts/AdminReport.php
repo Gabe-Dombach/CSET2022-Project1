@@ -10,7 +10,6 @@ if (!isset($_SESSION['user']) || $_SESSION['level'] != '4') {
     header("Location:login.php?error=Administrator privlages required to acess roles!");
 }
 
-echo "<h1>USER: ".$_SESSION['user']."<br/>ROLE: ".$_SESSION['role']."<br/><h1/>";
 
 require "../Veiws/AdminReport.view.php"
 ?>
