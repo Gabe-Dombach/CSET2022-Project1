@@ -1,7 +1,8 @@
 <Html>
 
 <body>
-    
+        <?php require "navbar.veiw.php";?>
+
 <p> List of Patients duty today </p>
 
 <p> Name </p> <p></p>

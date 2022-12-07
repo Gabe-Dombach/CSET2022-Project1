@@ -9,8 +9,10 @@
 
 
 <body>
+<?php require "navbar.veiw.php";?>
+
+<div class="display" >
     <form name="form" action="../Scripts/register.php" method="POST">
-<div class="col">
 
 
 <div class="row">
@@ -31,27 +33,29 @@
 </div>
 
 <div class="row">
-<p>First Name</p>  <input name="firstName" type="text">
+<p class="space1">First Name</p>  <input name="firstName" type="text" class="inputS1"> 
     </div>
 
     <div class="row">
-<p>Last Name</p>  <input name="lastName" type="text">
+<p class="space1">Last Name</p>  <input name="lastName" type="text" class="inputS1">
     </div>
 
     <div class="row">
-<p>Email ID</p>  <input name="email" type="email">
+<p class="space1">Email ID</p>  <input name="email" type="email" class="inputS1">
     </div>
 
     <div class="row">
-<p>Phone</p>  <input name="phone" type="tel">
+<p class="space1">Phone</p>  <input name="phone" type="tel" class="inputS1">
     </div>
 
     <div class="row">
-<p>Password</p>  <input name="password" type="text">
+<p class="space1">Password</p>  <input name="password" type="text" class="inputS1">
     </div>
     <div class="row">
+
 <p>DOB</p>  <input name='dob' type="date">
     </div>
+
 
 
     </div>
@@ -61,7 +65,9 @@
 
 <div class="col"> 
 
+
     <div class="row">
+
 <p class="patientOnly">Family code (for paitent family member) </p>  <input class="patientOnly" name = "famCode" type="text">
     </div>
 
@@ -74,16 +80,20 @@
 
     <div class="row">
 <p class="patientOnly">Relation to emergency contact</p>  <input class="patientOnly" name="relation" type="text">
+
     </div>
 
     
     <div class="row">
-<input name="submit" type="submit"></input>
+<input name="submit" type="submit" >
 
 <button> cancel </button>
-</div>
 
-</div>   
+
+</div>
+  
+
+    </div>
 </form>
 
 <script src="../Veiws/Resource/JS/register.js"></script>
@@ -93,3 +103,13 @@
 
 
 </html>
+
+
+
+
+
+<?php
+
+#page is not done big ass space in middle ask gabe or jaben about jquery since its still not working
+
+?>

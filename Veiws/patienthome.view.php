@@ -1,4 +1,10 @@
 <html>
+<head>
+
+</head>
+<body>
+        <?php require "navbar.veiw.php";?>
+
 
 <p> patient Id </p> <input type="text">
 
@@ -26,6 +32,6 @@
 
 
 
-
+</body>
 
 </html>

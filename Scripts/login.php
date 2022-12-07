@@ -31,8 +31,9 @@
                 $level = $acesss_levels[0]['level'];
                 $_SESSION['level'] = $level;
                 $_SESSION['user'] = $email;
+              
                 $_SESSION['role'] = $row['role'];
-
+                
                 if ($role == 'admin' || $role = "Supervisor") {
                     header("Location:adminReport.php");
                 } else if ($role == 'Doctor') {
@@ -40,13 +41,12 @@
 
                 } else if ($role == "Family") {
                     header("Location:familyHome.php");
-                } else if ($role == 'Applicant') {
-                    header("Location:login.php?error=0");
+                }
                 } else {header("Location:login.php?error=1");}
 
     }
 
-}
+
 $sql = "select password from patients where email ='$email';";
 
 $ret = pg_query($db, $sql);

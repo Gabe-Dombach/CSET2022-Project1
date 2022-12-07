@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <title>Document</title>
 </head>
 <body>
+    <?php require "navbar.veiw.php";?>
 
     <form action="../Scripts/roster.php" method="post">
     <p> date </p><input id="date" type="date" name="date" value=<?php echo date('Y-m-d'); ?>>
@@ -116,7 +118,6 @@ if (isset($cg1)) {
 ?>
         </p>
     </div>
-    <script src="../Veiws/Resource/JS/roster.js"></script>
 </body>
 
 </html>

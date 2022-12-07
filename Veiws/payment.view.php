@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?php require "navbar.veiw.php";?>
+
 
 <p> Patient ID </p> 
     <p>
@@ -21,6 +22,9 @@
                 echo $_SESSION['patid'];}?> 
                 REQUIRED>
             <input type="submit" name="submitID">
+        </form>
+        <form action="../Scripts/payment.php" METHOD="POST">
+            <input type='submit' name = "update" value="update">
         </form>
     </p>
 

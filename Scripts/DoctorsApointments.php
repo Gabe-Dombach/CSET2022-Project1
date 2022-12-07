@@ -1,9 +1,11 @@
 <?php
+
 session_start();
     if(!isset($_SESSION['patid'])){
         $_SESSION['patid'] = "";
     }
     else{$id = $_SESSION['patid'];}
+
     require("dbFunctions.php");
     if (!isset($_SESSION['user']) || $_SESSION['level'] != '4') {
         if (isset($_SESSION['user'])) {
@@ -40,4 +42,5 @@ if (isset($_POST['submit'])) {
 
 
 require("../Veiws/DoctorsApointments.view.php")
+
 ?>

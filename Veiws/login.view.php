@@ -1,25 +1,34 @@
 <html>
 
 <head>
+<style>
 
-<link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
+</style>
+<link rel="stylesheet" type="text/css" href="css/main-display.css">
 
 </head>
 <body>
-<div class="display" id="loginP">
+    <?php require("navbar.veiw.php");?>
+<div class="display" >
     <form class="login" action="../Scripts/login.php" method="POST">
+    
+    <div id="loginP">
+
+    <div class="row">
+            <p class="space2">email</p> <input type="text" name="email" id="email" class="inputS1">
+    </div>
+
         <div class="row">
-            <p>email</p>  <input type="text" name="email" id="email">
+            <p class="space1">password</p>  <input type="text" name="password" id="password" class="inputS1">
         </div>
 
         <div class="row">
-            <p>password</p>  <input type="text" name="password" id="password">
+       
+        <input type = submit name="submit" value="login" class="buttonS"> </input>
+
+        <input type = submit name="cancel" value="cancel" class="buttonS"> </input>
+
         </div>
-
-        <div class="row">
-        <input type = submit name="submit"> ok </input>
-
-        <input type = submit name="cancel"> cancel </input>
       
     </form>
       <h2><?php if( isset($_GET['error'])){
@@ -27,7 +36,7 @@
         }; ?></h2>
 
 </div>
-</div>
+
 
 
 

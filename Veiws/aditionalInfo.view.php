@@ -5,6 +5,7 @@
 
 </head>
 <body>
+    <?php require "navbar.veiw.php";?>
 
 <form action="../Scripts/aditionalInfo.php" method="POST">
 <div class="row">

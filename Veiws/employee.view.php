@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
 
+<?php require "navbar.veiw.php";?>
 <link rel="stylesheet" href="css/main-display.css" type="text/css">
 
 </head>
