@@ -2,7 +2,7 @@
     $host = "host = 127.0.0.1";
     $port = "port = 5432";
     $dbname = "dbname = ElderCareSystem";
-    $credentials = "user = postgres password=jaben1215";
+    $credentials = "user = postgres password=gabe1972";
     function dbConnect($host, $port, $dbname, $credentials){
         return pg_connect("$host $port $dbname $credentials"); #Connect to the database using user input credentials
     }
@@ -49,7 +49,7 @@
         (patientID INT,mornMeds BOOLEAN,	NoonMeds BOOLEAN,	NightMeds BOOLEAN,	bfast BOOLEAN,	lnch BOOLEAN,	dnr BOOLEAN, date DATE);
 
         CREATE TABLE IF NOT EXISTS prescriptions
-        (empID INT,	PatientID INT,	Medicine VARCHAR(50),timeToRecieve,datePrescribed DATE NOT NULL VARCHAR(50),comment VARCAHR(250));
+        (empID INT,	PatientID INT,	Medicine VARCHAR(50),timeToRecieve VARCHAR(50),datePrescribed DATE NOT NULL,comment VARCAHR(250));
         ";
     $ret = pg_query($db,$sql);
     if(!$ret){
