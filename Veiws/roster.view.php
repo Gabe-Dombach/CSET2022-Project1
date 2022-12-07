@@ -39,7 +39,7 @@
                             $rows = pg_fetch_all($ret);
                             echo $rows[0]['fname'];
                         } 
-                        else {echo "No Date Selected";}
+                        else {echo "";}
                     ?>
         </td>
             <td>
@@ -53,7 +53,7 @@
                         }
                         $rows = pg_fetch_all($ret);
                         echo $rows[0]['fname'];
-                } else {echo "No Date Selected";}
+                } else {echo "";}
                 ?>
             </td>
         <td>
@@ -69,10 +69,10 @@
                     echo $rows[0]['fname'];
                 } 
                 else 
-                    {echo "No Date Selected";}
+                    {echo "";}
             ?>
         </td>
-        
+
         <td>
             <?php 
                 if (isset($cg1)) {       
@@ -82,7 +82,7 @@
                     $rows = pg_fetch_all($ret);
                     echo $rows[0]['fname'];
                 } 
-                else {echo "No Date Selected";}
+                else {echo "";}
             ?>
         </td>
 
@@ -95,7 +95,7 @@
                     $rows = pg_fetch_all($ret);
                     echo $rows[0]['fname'];
                 }               
-                else {echo "No Date Selected";}
+                else {echo "";}
                 ?>
         </td>
 
@@ -108,13 +108,14 @@
                     $rows = pg_fetch_all($ret);
                     echo $rows[0]['fname'];
                 }
-                else {echo "No Date Selected";}
+                else {echo "";}
             ?>
         </td>
             </tr>
         </table>
 
-        
+        <?php if(isset($_GET['error'])){echo $_GET['error'];}
+                else{echo '';} ?>
     </div>
 </body>
 

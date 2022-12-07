@@ -30,7 +30,6 @@ ul.nav li.current a {
 if(!isset($_SESSION['level'])){
     echo '<ul class="nav">
     <li><a href="../Scripts/index.php">Home</a></li>
-    <li><a href="../Scripts/familyHome.php">Family Home</a></li>
     <li><a href="../Scripts/roster.php">Staff Roster</a></li>
 </ul>';
 

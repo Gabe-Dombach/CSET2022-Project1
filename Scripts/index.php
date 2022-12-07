@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "dbFunctions.php";
 dbStart((dbConnect($host, $port, $dbname, $credentials)));
 
