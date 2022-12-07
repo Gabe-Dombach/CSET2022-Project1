@@ -14,7 +14,7 @@
     </div>
 
     <div class="row">
-<p>Date</p>  <input type="date" name="dateInput"  id="dateInput" value="<?=date("Y-m-d")?>">" onchange="changed()"">
+<p>Date</p>  <input type="date" name="dateInput"  id="dateInput" value="<?=date("Y-m-d")?>" onchange="changed()">
     </div>
 
     <div class="row">
