@@ -49,7 +49,7 @@
         (patientID INT,mornMeds BOOLEAN,	NoonMeds BOOLEAN,	NightMeds BOOLEAN,	bfast BOOLEAN,	lnch BOOLEAN,	dnr BOOLEAN, date DATE);
 
         CREATE TABLE IF NOT EXISTS prescriptions
-        (empID INT,	PatientID INT,	Medicine VARCHAR(50),timeToRecieve VARCHAR(50),datePrescribed DATE NOT NULL,comment VARCAHR(250));
+        (empID INT,	PatientID INT,	Medicine VARCHAR(50),timeToRecieve VARCHAR(50),datePrescribed DATE NOT NULL,comment VARCHAR(250));
         ";
     $ret = pg_query($db,$sql);
     if(!$ret){
