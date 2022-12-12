@@ -54,7 +54,7 @@ if(!$ret){
     echo $ret;
 }
 $rows = pg_fetch_all($ret);
- foreach($rows as $row){
+foreach($rows as $row){
     echo $row['password'];
             if ($row['password'] == $_POST['password']) {
                 $_SESSION['user'] = $email;

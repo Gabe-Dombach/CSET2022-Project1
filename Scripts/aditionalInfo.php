@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
     $patientId = $_POST['patientId'];
     //check for value of date
     //update value of date if exists
-    if (isset($_POST['admissionDate'])) {
+    if (!empty($_POST['admissionDate'])) {
         $date = $_POST['admissionDate'];
         if (isset($_POST['group'])) {
             $group = $_POST['group'];
