@@ -17,7 +17,7 @@
     </div>
 
     <div class="row">
-<p> Admission Date </p>  <input type="date" name="admissionDate" id="admissionDate">
+<p> Admission Date </p>  <input type="date" name="admissionDate"  id="admissionDate">
     </div>
 
     <div class="row">
