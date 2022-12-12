@@ -12,7 +12,7 @@ session_start();
                 unset($_SESSION['role']);
             }
         }
-        header("Location:login.php?error=Administrator privelages required to access roles!");
+        header("Location:login.php?error=Administrator privelages required to access aditionalInfo!");
     }
     $db = dbConnect($host, $port, $dbname, $credentials);
 
