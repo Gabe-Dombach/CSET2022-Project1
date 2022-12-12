@@ -31,7 +31,7 @@
                 $level = $acesss_levels[0]['level'];
                 $_SESSION['level'] = $level;
                 $_SESSION['user'] = $email;
-              
+    
                 $_SESSION['role'] = $row['role'];
                 
                 if ($level = '4') {
