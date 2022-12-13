@@ -1,5 +1,14 @@
 <?php
     session_start();
+    $id = 0;
+
+function dateDiffInDays($date1, $date2)
+{
+    $diff = strtotime($date2) - strtotime($date1);
+
+    return abs(round($diff / 86400));
+}
+
     if(!isset($_SESSION['patid'])){
         $_SESSION['patid'] = "";
     }
@@ -34,7 +43,7 @@
         $payAmount = intval($_POST['payment']);
         $sql = "UPDATE patients set 
         payments=((SELECT payments FROM patients WHERE patientid=$id)-($payAmount))
-         WHERE patientid = $id";
+         WHERE patientid = $id;";
         $ret = pg_query($db,$sql);
         if(!$ret){
             echo pg_last_error($db);
@@ -42,9 +51,41 @@
             exit();
         }
         else{
+            $date = date("Y-m-d");
+            $sql = "UPDATE patients SET lastPayment = '$date' WHERE patientid = $id";
+            $ret = pg_query($db,$sql);
+            if(!$ret){echo pg_last_error($db);exit();}
             unset($_SESSION['patid']);
             echo "PAYMENT SUCCESSFULLY PROCESSED";
         }
+    }
+    if(isset($_POST['update'])){
+        $sql = "SELECT lastPayment,payments,patientid FROM patients";
+        $ret = pg_query($db,$sql);
+        if(!$ret){echo pg_last_error($db);exit();}
+        $rows= pg_fetch_all($ret);
+        foreach($rows as $row){
+            $lastPayment = $row['lastpayment'];
+            $lastPayment = date("Y-m-d",strtotime($row['lastpayment']));
+            if($lastPayment != date("Y-m-d")){
+            $id = intval($row['patientid']);
+            $payments = 10 * intval(dateDiffInDays(date("Y-m-d"),$lastPayment));
+            if (dateDiffInDays(date("Y-m-d"),$lastPayment > 31)){
+                
+                $sql = "SELECT COUNT(medicine) AS patprescript FROM prescriptions WHERE patientid =$id;
+";
+                $ret = pg_query($db,$sql);
+                if(!$ret){echo pg_last_error($db);exit();}
+                $rows = pg_fetch_all($ret);
+                $payments += (50 *intval($rows[0]['patprescript']));
+
+            }
+            $sql = "UPDATE patients set 
+            payments=((SELECT payments FROM patients WHERE patientid=$id)+($payments))
+            WHERE patientid = $id;";
+            $ret = pg_query($db,$sql);
+            if(!$ret){echo pg_last_error($db);exit();}
+        }}
     }
 
 require("../Veiws/payment.view.php")

@@ -1,4 +1,10 @@
 <html>
+<head>
+
+</head>
+<body>
+        <?php require "navbar.veiw.php";?>
+
 
 <head>
 
@@ -50,6 +56,6 @@
 
 </body>
 
-
+</body>
 
 </html>

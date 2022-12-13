@@ -2,12 +2,30 @@
 <head>
 
 <link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
-
+<?php require "navbar.veiw.php";?>
 </head>
 <body>
 
 <div class="display">
+   
 
+<table>
+    <tr>
+    <th>Role</th>
+    <th>Level</th>
+    </tr>
+    <?php 
+    $sql = "SELECT * FROM roles";
+    $ret = pg_query($db, $sql);
+    if(!$ret){echo pg_last_error($db);exit();}
+    $rows = pg_fetch_all($ret);
+    foreach($rows as $row){
+        echo "<tr><td>".$row['roles']."</td><td>".$row['level']."</td></tr>";
+    }
+    
+    
+    ?>
+</table>
 <form action="../Scripts/role.php" method="POST">
 <div class="row">
 <p>Role access level</p>

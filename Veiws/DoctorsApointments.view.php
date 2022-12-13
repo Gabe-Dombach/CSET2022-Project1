@@ -1,5 +1,6 @@
 <html lang="en">
 <head>
+    <?php require "navbar.veiw.php";?>
 
 <link rel="stylesheet" href="css/main-display.css" type="text/css">
 
@@ -15,7 +16,8 @@
     </div>
 
     <div class="row">
-<p class="space2">Date</p>  <input type="date" name="dateInput"  id="dateInput" class="inputS1" value="<?=date("Y-m-d")?>">
+     
+<p class="space2">Date</p>  <input type="date" name="dateInput"  id="dateInput" class="inputS1" value="<?=date("Y-m-d")?>" onchange="changed()">
     </div>
 
     <div class="row">

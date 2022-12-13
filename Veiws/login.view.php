@@ -1,11 +1,14 @@
 <html>
 
 <head>
+<style>
 
-<link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
+</style>
+<link rel="stylesheet" type="text/css" href="css/main-display.css">
 
 </head>
 <body>
+    <?php require("navbar.veiw.php");?>
 <div class="display" >
     <form class="login" action="../Scripts/login.php" method="POST">
     

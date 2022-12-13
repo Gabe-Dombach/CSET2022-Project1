@@ -7,11 +7,12 @@
 </head>
 
 <body>
-    
+<?php require "navbar.veiw.php";?>
+
 <div class="display">
 
 <form class="login" action="../Scripts/login.php" method="POST">
-
+    
 <p> List of Patients duty today </p>
 
 <p> Name </p> <p></p>

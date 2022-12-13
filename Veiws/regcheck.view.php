@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
 </head>
 <body>
+    <?php require "navbar.veiw.php";?>
 
 <div class="display">
 
@@ -26,11 +27,11 @@
                 exit();
             }
             $rows = pg_fetch_all($ret);
+            if($rows){
             foreach($rows as $row){
                 echo "<li>".$row['fname']." ".$row['lname']. "Role:".$row['role']."<input type=checkbox name=".$row['empid']." value=".$row['empid']."</input><input type=checkbox name=!".$row['empid']." value=".$row['empid']."</input></li>";
-            }
-
-            
+            }}
+            else{echo"<li>NO USERS TO VERIFY</li>";}
             
             ?>
         </ul>
