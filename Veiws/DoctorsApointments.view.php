@@ -7,18 +7,21 @@
 </head>
 <body>
 
+<div class="display">
+
 <form action="../Scripts/DoctorsApointments.php" method="POST">
 <div class="row">
 
-<p>patient ID</p>  <input type="text" name="patientId" id="patientId" onkeyup="updateIdField()"> 
+<p class="space2">patient ID</p>  <input type="text" name="patientId" id="patientId" onkeyup="updateIdField()" class="inputS1"> 
     </div>
 
     <div class="row">
-<p>Date</p>  <input type="date" name="dateInput"  id="dateInput" value="<?=date("Y-m-d")?>" onchange="changed()">
+     
+<p class="space2">Date</p>  <input type="date" name="dateInput"  id="dateInput" class="inputS1" value="<?=date("Y-m-d")?>" onchange="changed()">
     </div>
 
     <div class="row">
-<p> Doctor </p>  <select name="doctors" id="doctors">
+<p class="space1"> Doctor </p>  <select name="doctors" id="doctors" class="inputS1">
  
  <option value="_"></option>
     <?php foreach($_SESSION['docs'] as $doctor){
@@ -30,13 +33,13 @@
     </div>
 
     <div class="row">
-<p>patient name</p>  <input type="text" id="patientName" readonly>
+<p class="space2">patient name</p>  <input type="text" id="patientName" readonly class="inputS1">
     </div>
 
     <div class="row">
-    <input type="submit" name="submit" value="ok">
+    <input type="submit" name="submit" value="ok" class="buttonS">
 
-    <button onclick="clearFields()"> cancel </button>
+    <button onclick="clearFields()" class="buttonS"> cancel </button>
 </div>
 </form> 
 
@@ -69,5 +72,7 @@
 
 </script>
     
+</div>
+
 </body>
 </html>

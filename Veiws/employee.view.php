@@ -1,6 +1,13 @@
 <html lang="en">
 <head>
-<link rel="stylesheet" href="css/main-display.css" type="text/css">
+
+<head>
+<link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
+</head>
+
+<body>
+
+<div class="display">
 
 </head>
 <body>

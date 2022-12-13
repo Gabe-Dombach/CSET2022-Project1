@@ -5,12 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>registration Check</title>
+    <link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
 </head>
 <body>
     <?php require "navbar.veiw.php";?>
+
+<div class="display">
+
     <form action="../Scripts/regcheck.php" method="POST">
         <ul>
             <?php 
+            
+
+
+            
+
             $sql = "SELECT fname,lname,role,empid FROM emp WHERE aproved = FALSE";
             $ret = pg_query($db,$sql);
             if(!$ret){
@@ -26,7 +35,14 @@
             
             ?>
         </ul>
+
+
         <input type="submit" name="submit" value="Aprove">
+
+        
+
     </form>
+
+    </div>
 </body>
 </html>

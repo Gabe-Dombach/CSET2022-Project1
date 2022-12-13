@@ -1,8 +1,18 @@
 <Html>
 
-<body>
-        <?php require "navbar.veiw.php";?>
+<head>
 
+<link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
+
+</head>
+
+<body>
+<?php require "navbar.veiw.php";?>
+
+<div class="display">
+
+<form class="login" action="../Scripts/login.php" method="POST">
+    
 <p> List of Patients duty today </p>
 <?php foreach($patients as $patient) {
         echo "".$patient['lname'].", ".$patient['fname'];
