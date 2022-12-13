@@ -1,8 +1,6 @@
 <html lang="en">
 <head>
 
-<?php require "navbar.veiw.php";?>
-
 <head>
 <link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
 </head>
@@ -13,7 +11,7 @@
 
 </head>
 <body>
-
+<?php require "navbar.veiw.php";?>
 <table id="employeeTable" class="employeeTable">
     <tr>
         <th>ID</th>
