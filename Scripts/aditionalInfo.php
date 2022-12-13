@@ -25,6 +25,7 @@ session_start();
     $patients = pg_fetch_all($patientquery);
 
 if (isset($_POST['submit'])) {
+
     global $db;
     $patientId = $_POST['patientId'];
     //check for value of date
