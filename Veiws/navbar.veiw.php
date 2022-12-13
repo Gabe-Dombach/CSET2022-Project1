@@ -66,7 +66,7 @@ else if($_SESSION['level'] == '3'){
     <li><a href="../Scripts/index.php">Home</a></li>
     <li><a href="../Scripts/patients.php">Patient\'s</a></li>
     <li><a href="../Scripts/doctorHome.php">Doctor\'s Home</a></li>
-    <li><a href="../Scripts/doctorPatients.php">Doctor\'s Patients</a></li>
+    <li><a href="../Scripts/PatientofDoctor.php">Doctor\'s Patients</a></li>
     <li><a href="../Scripts/roster.php">Staff Roster</a></li>
     <li><a href="../Scripts/logOut.php">Log Out</a></li>
 </ul>';

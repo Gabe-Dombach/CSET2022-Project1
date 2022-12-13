@@ -11,5 +11,6 @@ if (!isset($_SESSION['user']) || $_SESSION['level'] != '4') {
 }
 
 
+
 require "../Veiws/AdminReport.view.php"
 ?>
