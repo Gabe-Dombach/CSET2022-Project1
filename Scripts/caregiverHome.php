@@ -2,11 +2,6 @@
 // error_reporting(0);
 
 session_start();
-    if(!isset($_SESSION['patid'])){
-        $_SESSION['patid'] = [];
-    }
-    else{$id = $_SESSION['patid'];}
-
     if(!isset($_POST['patientchecks'])){
     $_POST['patientchecks'] = "";
     }
@@ -25,6 +20,7 @@ session_start();
     $db = dbConnect($host, $port, $dbname, $credentials);
 
     $cgid = $_SESSION['empid'];
+var_dump($_SESSION['role']);
     $currDate = date("Y-m-d");
     $query = pg_query($db, "SELECT * FROM roster WHERE date = '$currDate'");
     if (!$query) {
@@ -46,6 +42,7 @@ session_start();
     }
     
     $query = pg_query($db, "SELECT * FROM patients WHERE patientgroup = '$group'");
+echo $query;
     if (!$query) {
         echo "An error occurred.\n";
         exit;

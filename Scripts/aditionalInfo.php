@@ -53,7 +53,20 @@ if (isset($_POST['submit'])) {
                 exit;
             };
         }
-        
+
+    }
+    if (isset($_POST['group'])) {
+        $group = $_POST['group'];
+        $query = "UPDATE patients
+        SET patientgroup = 
+        '$group'
+        WHERE patientid= '$patientId'";
+        $result = pg_query($db, $query);
+        if (!$result) {
+            echo "An error occurred.\n";
+            exit;
+        }
+        ;
     }
 }
 
