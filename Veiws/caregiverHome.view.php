@@ -1,8 +1,18 @@
 <Html>
 
-<body>
-        <?php require "navbar.veiw.php";?>
+<head>
 
+<link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
+
+</head>
+
+<body>
+<?php require "navbar.veiw.php";?>
+
+<div class="display">
+
+<form class="login" action="../Scripts/login.php" method="POST">
+    
 <p> List of Patients duty today </p>
 
 <p> Name </p> <p></p>
@@ -19,8 +29,16 @@
 
 <p> Dinner </p> <p></p>
 
-<button> Ok </button>
-<button> cancel </button>
+<div class="row">
+
+<button class="buttonS"> Ok </button>
+<button class="buttonS"> cancel </button>
+
+</div>
+
+</form>
+
+</div>
 
 </body>
 

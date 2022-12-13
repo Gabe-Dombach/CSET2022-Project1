@@ -6,11 +6,31 @@
         <?php require "navbar.veiw.php";?>
 
 
-<p> patient Id </p> <input type="text">
+<head>
 
-<p> Date </p> <input type="text">
+<link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
 
-<p> patient Name </p> <input type="text">
+</head>
+
+<body>
+
+<div class="display">
+
+<form class="login" action="../Scripts/login.php" method="POST">
+
+<div class="row">
+<p class="space2"> patient Id </p> <input type="text" class="inputS1">
+</div>
+
+
+<div class="row">
+<p class="space2"> Date </p> <input type="text" class="inputS1">
+</div>
+
+<div class="row">
+<p class="space2"> patient Name </p> <input type="text" class="inputS1">
+</div>
+
 
 <P>Doctors Name</P> <P></P>  
 
@@ -30,7 +50,11 @@
 
 <P>Dinner</P> <P></P>
 
+</form>
 
+</div>
+
+</body>
 
 </body>
 

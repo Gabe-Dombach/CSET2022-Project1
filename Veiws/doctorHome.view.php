@@ -1,4 +1,15 @@
 <html>
+ 
+<head>
+<link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
+</head>
+
+<body>
+
+<div class="display">
+
+<form action="">
+
      <?php require "navbar.veiw.php";?>
 
 <p>Name</p> <p></p>
@@ -15,15 +26,18 @@
 
 <P>appointments</P>
 
-<input type="text" placeholder="Till date"> </input> 
+<input type="text" placeholder="Till date" class="inputS1">
 
-<button> Submit </button>
+<button class="buttonS"> Submit </button>
 
 <p> Patient </p> <p> </p>
 
 <p> Date </p> <p> </p>
 
+</form>
 
+</div>
 
+</body>
 
 </html>

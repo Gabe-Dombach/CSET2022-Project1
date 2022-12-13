@@ -1,33 +1,35 @@
 <html lang="en">
 <head>
 
-<link rel="stylesheet" href="css/main-display.css" type="text/css">
+<link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
 
 </head>
 <body>
     <?php require "navbar.veiw.php";?>
 
+<div class="display">
+
 <form action="../Scripts/aditionalInfo.php" method="POST">
 <div class="row">
-<p>patient ID</p>  <input type="text" name="patientId" id="patientId" onkeyup="updateIdField()">
+<p class="space1">patient ID</p>  <input type="text" name="patientId" id="patientId" onkeyup="updateIdField()" class="inputS1">
     </div>
 
     <div class="row">
-<p>Group</p>  <input type="type" name="group" id="group">
+<p class="space2">Group</p>  <input type="type" name="group" id="group" class="inputS1">
     </div>
 
     <div class="row">
-<p> Admission Date </p>  <input type="date" name="admissionDate"  id="admissionDate">
+<p class="space1"> Admission Date </p>  <input type="date" name="admissionDate"  id="admissionDate" class="inputS1">
     </div>
 
     <div class="row">
-<p>patient name</p>  <input type="text" id="patientName" readonly>
+<p class="space1">patient name</p>  <input type="text" class="inputS1" id="patientName" readonly>
     </div>
 
     <div class="row">
-    <input type="submit" name="submit" value="ok">
+    <input type="submit" name="submit" value="ok" class="inputS1">
 
-    <button onclick="clearFields()"> cancel </button>
+    <button onclick="clearFields()" class="buttonS"> cancel </button>
 </div>
 </form> 
 
@@ -50,5 +52,6 @@
     }
 </script>
     
+</div>
 </body>
 </html>

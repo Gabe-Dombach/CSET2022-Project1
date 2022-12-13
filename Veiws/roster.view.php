@@ -8,13 +8,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
 </head>
 <body>
-    <?php require "navbar.veiw.php";?>
+<?php require "navbar.veiw.php";?>
+
+<div class="display">
+
+
+<div class="col">
+   
 
     <form action="../Scripts/roster.php" method="post">
     <p> date </p><input id="date" type="date" name="date" value=<?php echo date('Y-m-d'); ?>>
-    <input type="submit" value="Check_Date" name="submit">
+    <input type="submit" value="Check_Date" name="submit" class="buttonS">
     </form>
     <div>
         <table>
@@ -117,6 +124,10 @@
         <?php if(isset($_GET['error'])){echo $_GET['error'];}
                 else{echo '';} ?>
     </div>
+    <script src="../Veiws/Resource/JS/roster.js"></script>
+
+    </div>
+   
 </body>
 
 </html>
