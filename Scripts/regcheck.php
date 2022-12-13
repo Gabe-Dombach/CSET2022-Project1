@@ -13,29 +13,35 @@
         $rows = pg_fetch_all($ret);
         foreach($rows as $row){
         if(isset($_POST[$row['empid']])){
-            echo $row['empid'];
-            $id = $row['empid'];
-            $sql ="UPDATE emp SET aproved = TRUE WHERE empid =$id";
-            $ret = pg_query($db,$sql);
-            if(!$ret){
-                echo pg_last_error($db);
-                exit();
-            }
-            echo "User ".$row['fname']." Aproved";
-        }
-        else if(isset($_POST['!'.$row['empid']])){
-            $id = $row['empid'];
-            $sql = "DELETE FROM emp WHERE empid = $id";
-            $ret = pg_query($db,$sql);
-            
-            if(!$ret){
-                echo pg_last_error($db);
-                exit();
-            }
-            echo "User " . $row['fname'] . " Denied";
+            if("!".$row['empid'] == trim($_POST[$row['empid']]," ")){
+
+                $id = $row['empid'];
+                $sql = "DELETE FROM emp WHERE empid = $id";
+                $ret = pg_query($db, $sql);
+                
+                if (!$ret) {
+                    echo pg_last_error($db);exit();}       
 
         }
+        else if(trim($_POST[$row['empid']]) == $row['empid']){
+
+            echo $row['empid'];
+$id = $row['empid'];
+$sql = "UPDATE emp SET aproved = TRUE WHERE empid =$id";
+$ret = pg_query($db, $sql);
+if (!$ret) {
+    echo pg_last_error($db);
+    exit();
+}
+
+
+
         }
-    }
+        else{
+            echo 'error';
+            exit();
+        }
+        }
+    }}
     require("../Veiws/regcheck.view.php");
 ?>
