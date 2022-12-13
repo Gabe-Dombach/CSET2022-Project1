@@ -1,14 +1,14 @@
 .display {
     display: flex;
-    padding-top:10%;
+    padding-top: 10%;
     margin-left: 30%;
     margin-right: 30%;
-    margin: 30%;
+    margin: 2vh;
     border: 3px solid blue;
     justify-content: center;
+    position: relative;
     padding-bottom: 10%;
-    
-  }
+}
 
 .space1 {
     margin-right: 5%;
@@ -59,29 +59,22 @@
 .col {
     padding: 25%;
     justify-content: center;
-  }
+}
 
-  .col2
-  {
-    
+.col2 {
     padding: 25%;
     justify-content: center;
     border: 3px solid blue;
-
-  }
+}
 
 .patientOnly {
     display: none;
 }
 
-
-  #cent
-  {
+#cent {
     justify-content: center;
     display: flex;
-  }
-
-  
+}
 
 .displayHome {
     display: flex;
