@@ -2,11 +2,6 @@
 // error_reporting(0);
 
 session_start();
-    if(!isset($_SESSION['patid'])){
-        $_SESSION['patid'] = [];
-    }
-    else{$id = $_SESSION['patid'];}
-
     if(!isset($_POST['patientchecks'])){
     $_POST['patientchecks'] = "";
     }
@@ -45,8 +40,9 @@ session_start();
     } else {
     $group = 0;
     }
-
+    
     $query = pg_query($db, "SELECT * FROM patients WHERE patientgroup = $group");
+echo $query;
     if (!$query) {
         echo "An error occurred.\n";
         exit;
