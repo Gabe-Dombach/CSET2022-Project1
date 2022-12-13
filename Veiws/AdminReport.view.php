@@ -10,39 +10,75 @@
 <?php require("navbar.veiw.php");?>
 <div class="display">
 
-<form class="login" action="../Scripts/login.php" method="POST">
-
+<form action="../Scripts/AdminReport.php" method="POST">
 <div class="row">
-<p class="space1" > Date </p> <input type="text" class="inputS1">
+        <div>
+                <p>Date</p>
+                <input type="date" name="date" id="date" value="<?php echo $date ?>">
+        </div>
 </div>
 
+<table id="reportTable" class="reportTable">
+    <tr>
+        <th>Patient's Name</th>
+        <th>Doctor's Name</th>
+        <th>Doctor's Appointment</th>
+        <th>Caregiver's Name</th>
+        <th>Morning Medicine</th>
+        <th>Afternoon Medicine</th>
+        <th>Night Medicine</th>
+        <th>Breakfast</th>
+        <th>Lunch</th>
+        <th>Dinner</th>
+    </tr>
+<?php
+foreach ($reports as $report) {
+    echo "
+        <tr>
+        <td>".$report['name']."</td>
+        <td>".$report['docName']."</td>
+        <td>".$report['appointment']."</td>
+        <td>".$report['cgName']."</td>
+        ";
+        if ($report['mornmeds'] == 't'){
+            echo "<td></td>";
+        } else {
+            echo "<td> Missing </td>";
+        }
+        if ($report['noonmeds'] == 't'){
+            echo "<td></td>";
+        } else {
+            echo "<td> Missing </td>";
+        }
+        if ($report['nightmeds'] == 't'){
+            echo "<td></td>";
+        } else {
+            echo "<td> Missing </td>";
+        }
+        if ($report['bfast'] == 't'){
+            echo "<td></td>";
+        } else {
+            echo "<td> Missing </td>";
+        }
+        if ($report['lnch'] == 't'){
+            echo "<td></td>";
+        } else {
+            echo "<td> Missing </td>";
+        }
+        if ($report['dnr'] == 't'){
+            echo "<td></td>";
+        } else {
+            echo "<td> Missing </td>";
+        }
+}
+?>
+</table>
 
-
-
-<P>Doctors Name</P> <P></P>  
-
-<P>Doctor's appointment</P> <P></P>
-
-<P>Caregivers Name</P> <P></P>
-
-<P>Morning medicine</P> <P></P>
-
-<P>Afternoon medicine</P> <P></P>
-
-<P>Night medicine</P> <P></P>
-
-<P>Breakfeast</P> <P></P>
-
-<P>Lunch</P> <P></P> 
-
-<P>Dinner</P> <P></P>
-
+<input type="submit" name="ubmit" value="ok">
 </form>
 
 </div>
 
-
 </body>
-
 
 </html>

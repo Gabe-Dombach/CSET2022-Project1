@@ -1,5 +1,9 @@
 <html>
 
+<head>
+<link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
+</head>
+
 <body>
         <?php require "navbar.veiw.php";?>
 
