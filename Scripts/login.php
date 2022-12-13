@@ -43,8 +43,11 @@
                 else if ($role == "Family") {
                     header("Location:familyHome.php");
                 }
+                else if($role == 'careGiver') {
+                    header("Location:caregiverHome.php");
+                }
                 else {
-                    header("Location:login.php?error=1");
+                    header("Location:login.php?error=No Redirect Found");
                 }
 
     }

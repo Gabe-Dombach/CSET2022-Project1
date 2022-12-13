@@ -24,7 +24,7 @@ session_start();
     }
     $db = dbConnect($host, $port, $dbname, $credentials);
 
-    $cgid = $_SESSION['empid'];
+    $cgid = $_SESSION['id'];
     $currDate = date("Y-m-d");
     $query = pg_query($db, "SELECT * FROM roster WHERE date = '$currDate'");
     if (!$query) {
