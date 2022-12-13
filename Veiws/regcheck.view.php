@@ -22,6 +22,8 @@
         }
        
     </style>
+        <link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,7 +58,7 @@
             
             ?>
         </table>
-        <input type="submit" name="submit" value="Submit Users">
+        <input type="submit" name="submit" value="Submit Users" class="buttonS">
 
         
 

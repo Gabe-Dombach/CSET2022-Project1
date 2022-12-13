@@ -4,7 +4,7 @@
     if(isset($_POST['submit'])){
         $db = dbConnect($host, $port, $dbname, $credentials);
         $email = $_POST['email'];
-        $sql = "select password,role,aproved from emp where email ='$email';";
+        $sql = "select password,role,aproved,empid from emp where email ='$email';";
 
         $ret = pg_query($db, $sql);
         if(!$ret){
@@ -14,6 +14,8 @@
         $rows = pg_fetch_all($ret);
 
         foreach($rows as $row){
+            $id = $row['empid'];
+
             print_r($row);
             if ($row['password'] == $_POST['password']) {
                 if ($row['aproved'] == false) {
@@ -27,11 +29,13 @@
                     echo pg_last_error($db);
                     exit();
                 }
+
                 $acesss_levels = pg_fetch_all($ret);
                 $level = $acesss_levels[0]['level'];
                 $_SESSION['level'] = $level;
                 $_SESSION['user'] = $email;
-            $_SESSION['id'] = $row['empid'];
+                $_SESSION['id'] = $id;
+                
                 $_SESSION['role'] = $row['role'];
           
                 if ($level == '4' ) {
@@ -43,8 +47,11 @@
                 else if ($role == "Family") {
                     header("Location:familyHome.php");
                 }
+                else if($role == 'careGiver') {
+                    header("Location:caregiverHome.php");
+                }
                 else {
-                    header("Location:login.php?error=1");
+                    header("Location:login.php?error=No Redirect Found");
                 }
 
     }

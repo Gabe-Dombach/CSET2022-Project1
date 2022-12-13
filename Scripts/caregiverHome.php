@@ -19,8 +19,8 @@ session_start();
     }
     $db = dbConnect($host, $port, $dbname, $credentials);
 
-    $cgid = $_SESSION['empid'];
-var_dump($_SESSION['role']);
+    $cgid = intval($_SESSION['id']);
+
     $currDate = date("Y-m-d");
     $query = pg_query($db, "SELECT * FROM roster WHERE date = '$currDate'");
     if (!$query) {
@@ -29,19 +29,19 @@ var_dump($_SESSION['role']);
     };
     $todaysRoster = pg_fetch_all($query);
 
-    if ($todaysRoster[0]['cg1'] === $cgid) {
+    if (intval($todaysRoster[0]['cg1']) === $cgid) {
     $group = 1;
-    } elseif ($todaysRoster[0]['cg2'] === $cgid) {
+    } elseif (intval($todaysRoster[0]['cg2']) === $cgid) {
         $group = 2;
-    } elseif ($todaysRoster[0]['cg3'] === $cgid) {
+    } elseif (intval($todaysRoster[0]['cg3']) === $cgid) {
         $group = 3;
-    } elseif ($todaysRoster[0]['cg4'] === $cgid) {
+    } elseif (intval($todaysRoster[0]['cg4']) === $cgid) {
         $group = 4;
     } else {
     $group = 0;
     }
     
-    $query = pg_query($db, "SELECT * FROM patients WHERE patientgroup = '$group'");
+    $query = pg_query($db, "SELECT * FROM patients WHERE patientgroup = $group");
 echo $query;
     if (!$query) {
         echo "An error occurred.\n";

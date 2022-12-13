@@ -2,6 +2,20 @@
 <html lang="en">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <style>
+        table, th, td {
+            border:1px solid black;
+            border-collapse:collapse;
+            width: 60vw;
+
+            padding:2vh;
+            text-align:center;
+
+        }
+        table{
+            margin:2vw;
+        }
+        </style>
     <link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
 
     <meta charset="UTF-8">
@@ -20,12 +34,10 @@
    
 
     <form action="../Scripts/roster.php" method="post">
-    <p> date </p><input id="date" type="date" name="date" value=<?php echo date('Y-m-d'); ?>>
-    <input type="submit" value="Check_Date" name="submit" class="buttonS">
-    </form>
     <div>
         <table>
             <tr>
+                <th>Date</th>
                 <th>Supervisor</th>
                 <th>Doctor</th>
                 <th>Caregiver 1</th>
@@ -34,6 +46,9 @@
                 <th>Caregiver 4</th>
             </tr>
             <tr>
+                <td>
+                    <input id="date" type="date" name="date" value=<?php echo date('Y-m-d'); ?>>
+                </td>
                 <td>
                     <?php
                         if (isset($cg1)) {
@@ -120,7 +135,9 @@
         </td>
             </tr>
         </table>
+            <input type="submit" value="Check_Date" name="submit" class="buttonS">
 
+</form>
         <?php if(isset($_GET['error'])){echo $_GET['error'];}
                 else{echo '';} ?>
     </div>
