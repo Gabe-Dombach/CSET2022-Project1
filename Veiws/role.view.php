@@ -1,6 +1,21 @@
 <html lang="en">
 <head>
+        <style>
+        table, th, td {
+            border:1px solid black;
+            border-collapse:collapse;
+            width: 20vw;
+            text-align: center;
+            align-items: center;
+            align-content: center;
 
+            padding:2vh;
+
+        }
+        table{
+            margin:1vw;
+        }
+        </style>
 <link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
 <?php require "navbar.veiw.php";?>
 </head>
@@ -27,19 +42,15 @@
     ?>
 </table>
 <form action="../Scripts/role.php" method="POST">
-<div class="row">
-<p>Role access level</p>
-    </div>
+<table>
 
 
+<tr><td>Role Name</td><td><input name ="roleName" type="text" class="inputS1"></td></tr>
+ 
+<tr>
+<td>Level</td>
+<td>
 
-
-<div class="row">
-<p class="space2">New Role</p>  <input name ="roleName" type="text" class="inputS1">
-    </div>
-
-    <div class="row">
-<p class="space1">Access level</p>  
     <select name="access_level" class="inputS1" >
         <option value="0"> Level 0</option>
         <option value="1"> Level 1</option>
@@ -48,22 +59,13 @@
         <option value="4"> Level 4</option>
 
     </select>
-    </div>
-
-   
-
-
-
-    <div class="row">
-<input type="submit" value="Insert Role" name="submit" class="buttonS">
-<button class="buttonS"> cancel </button>
-</div>
+    </td>
+    </tr>
+    <tr>
+    <td><input style="margin-right:5vw;" type="submit" value="Insert Role" name="submit" class="buttonS"></td>
+    <td><input type="submit" value = "Cancel" name = "cancel" class="buttonS" ></td> 
+    </tr>
+</table>
 </form>
-
-</div>
-
-
-   
-
 </body>
 </html>
