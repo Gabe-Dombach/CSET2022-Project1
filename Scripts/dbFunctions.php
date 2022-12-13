@@ -2,7 +2,7 @@
     $host = "host = 127.0.0.1";
     $port = "port = 5432";
     $dbname = "dbname = ElderCareSystem";
-    $credentials = "user = postgres password=jaben1215";
+    $credentials = "user = postgres password=gabe1972";
     function dbConnect($host, $port, $dbname, $credentials){
         return pg_connect("$host $port $dbname $credentials"); #Connect to the database using user input credentials
     }

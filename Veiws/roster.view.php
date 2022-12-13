@@ -3,7 +3,20 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../Veiws/css/main-display.css" type="text/css">
+    <style>
+        table, th, td {
+            border:1px solid black;
+            border-collapse:collapse;
+            width: 50vw;
 
+            padding:2vh;
+            text-align:center;
+
+        }
+        table{
+            margin:5vw;
+        }
+        </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
