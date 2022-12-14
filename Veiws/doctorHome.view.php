@@ -88,7 +88,7 @@ if ($dhreport) {
 <form action="../Scripts/doctorHome.php" method="POST">
 <p>Til Date:</p>
 <input type="date" name="tilDate" id="tilDate" min="<?php date("Y-m-d") ?>" class="inputS1">
-<input type="submit" value="search" name="futureAppointments">
+<input type="submit" value="futureAppointments" name="futureAppointments">
 </form>
 
 <?php

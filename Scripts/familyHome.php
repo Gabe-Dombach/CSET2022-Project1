@@ -53,6 +53,11 @@ if (isset($_POST['ubmit'])) {
             exit;
         };
         $carecheck = pg_fetch_all($query);
+        if(!$query) {
+            echo 'No Care Check for given day';
+            exit();
+        }
+
 
 
         $query = pg_query($db, "SELECT * FROM apointments WHERE patientid = $id AND date = '$date'");

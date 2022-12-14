@@ -11,11 +11,10 @@
 
 <div class="display">
 
-<form class="login" action="../Scripts/login.php" method="POST">
-    
+
 <p> List of Patients duty today </p>
-<?php foreach($patients as $patient) {
-        echo "".$patient['lname'].", ".$patient['fname'];
+<?php foreach ($patients as $patient) {
+    echo "" . $patient['lname'] . ", " . $patient['fname'];
 }
 ?>
 <form action="../Scripts/caregiverHome.php" method="POST">
@@ -32,24 +31,27 @@
         <th>Dinner</th>
     </tr>
     <?php
-    if ($_SESSION['CGpatients']) {
-            foreach ($_SESSION['CGpatients'] as $patient) {
-                echo "
+if ($_SESSION['CGpatients']) {
+    foreach ($_SESSION['CGpatients'] as $patient) {
+
+
+        
+        echo "
             <tr>
-                <td>".$patient['lname'].", ".$patient['fname']."</td>
-                <td><input type='checkbox' name='patientchecks[]' value='".$patient['patientid']."morningmed'></td>
-                <td><input type='checkbox' name='patientchecks[]' value='".$patient['patientid']."afternoonmed'></td>
-                <td><input type='checkbox' name='patientchecks[]' value='".$patient['patientid']."nightmed'></td>
-                <td><input type='checkbox' name='patientchecks[]' value='".$patient['patientid']."breakfast'></td>
-                <td><input type='checkbox' name='patientchecks[]' value='".$patient['patientid']."lunch'></td>
-                <td><input type='checkbox' name='patientchecks[]' value='".$patient['patientid']."dinner'></td>
+                <td>" . $patient['lname'] . ", " . $patient['fname'] . "</td>
+                <td><input type='checkbox'  name='patientchecks[]' value='" . $patient['patientid'] . "morningmed'></td>
+                <td><input type='checkbox'  name='patientchecks[]' value='" . $patient['patientid'] . "afternoonmed'></td>
+                <td><input type='checkbox'  name='patientchecks[]' value='" . $patient['patientid'] . "nightmed'></td>
+                <td><input type='checkbox'  name='patientchecks[]' value='" . $patient['patientid'] . "breakfast'></td>
+                <td><input type='checkbox'  name='patientchecks[]' value='" . $patient['patientid'] . "lunch'></td>
+                <td><input type='checkbox'  name='patientchecks[]' value='" . $patient['patientid'] . "dinner'></td>
             </tr>
             ";
-        }
-        } else {
-        echo "No patients found";
-        }
-    ?>
+    }
+} else {
+    echo "No patients found";
+}
+?>
 </table>
 
         <input type="submit" name="cgSubmit" value="ok">
