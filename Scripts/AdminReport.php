@@ -31,13 +31,15 @@ if (isset($_POST['ubmit'])) {
     foreach ($patients as $patient) {
         $id = $patient['patientid'];
         $name = $patient['lname'] . ", " . $patient['fname'];
-        $group = "cg".$patient['patientgroup'];
+        $groupies = [1,2,3,4];
+        if(!in_array($patient['patientgroup'],$groupies)){$group='cg1';}else{$group = "cg" . $patient['patientgroup'];}
         $query = pg_query($db, "SELECT * FROM roster WHERE date = '$date'");
         if (!$query) {
             echo "An error occurred.\n";
             exit;
         };
         $cg = pg_fetch_all($query);
+     
         $cgID = $cg[0][$group];
         $query = pg_query($db, "SELECT fname, lname FROM emp WHERE empid = $cgID");
         if (!$query) {
@@ -77,7 +79,10 @@ if (isset($_POST['ubmit'])) {
     foreach ($patients as $patient) {
         $id = $patient['patientid'];
         $name = $patient['lname'] . ", " . $patient['fname'];
-        $group = "cg" . $patient['patientgroup'];
+        $groupies = [1, 2, 3, 4];
+      
+        if (!in_array($patient['patientgroup'], $groupies)) {$group = 'cg1';} else { $group = "cg" . $patient['patientgroup'];}
+
         $query = pg_query($db, "SELECT * FROM roster WHERE date = '$date'");
         if (!$query) {
             echo "An error occurred.\n";

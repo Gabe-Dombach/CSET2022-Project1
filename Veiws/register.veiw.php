@@ -96,7 +96,24 @@
     </div>
 </form>
 
-<script src="../Veiws/Resource/JS/register.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+});
+$('#roles').change(function () {
+    let role = $(this).children('option').filter(':selected').text();
+    if (role == 'Patient') {
+        console.log('block');
+        $('.patientOnly').css({ display: 'block' });
+    } else {
+        console.log('inblock');
+
+        $('.patientOnly').css({ display: 'None' });
+
+    }
+});
+</script>
 </body>
 
 
