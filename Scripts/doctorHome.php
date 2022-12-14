@@ -1,4 +1,5 @@
-<?php 
+<?php
+error_reporting(0); 
 session_start();
 require("dbFunctions.php");
 // if (!isset($_SESSION['user']) || $_SESSION['level'] != '0') {
@@ -7,70 +8,64 @@ require("dbFunctions.php");
 
 $db = dbConnect($host, $port, $dbname, $credentials);
 
-if (isset($_POST['ubmit'])) {
-    if (isset($_POST['familyCode']) && isset($_POST['patientId'])) {
-        $id = $_POST['patientId'];
-        $query = pg_query($db, "SELECT * FROM patients WHERE patientid = $id");
-        if (!$query) {
-            echo "An error occurred.\n";
-            exit;
-        };
-        $patient = pg_fetch_all($query);
-         $_POST['currPatient'] = $patient[0];
-        if ($_POST['familyCode'] != $patient[0]['familycode']) {
-            header("Location:familyHome.php?error=Your family code is not correct for the chosen patient");
-        }
-    } elseif (isset($_POST['familyCode']) xor isset($_POST['patientId'])) {
-        header("Location:familyHome.php?error=Please submit a family code and patient ID");
+if (!isset($_SESSION['DHcurrpatient'])) {
+    $_SESSION['DHcurrpatient'] = 0;
+} 
+
+$query = pg_query($db, "SELECT * FROM patients");
+    if (!$query) {
+        echo "An error occurred.\n";
+        exit;
+    };
+$patients = pg_fetch_all($query);
+$currpatient = $patients[$_SESSION['DHcurrpatient']];
+$currid = $currpatient['patientid'];
+
+if (isset($_POST['searchAppointments'])) {
+    $where = "";
+    if ($_POST['appdate'] != null) {
+        $temp = $_POST['appdate'];
+        $where = $where." AND apointments.date = '$temp'";
     }
-
-
-    if(isset($_POST['date'])) {
-        $date = $_POST['date'];
-    } else {
-        $date = date("Y-m-d");
+    if ($_POST['pcomment'] != null) {
+        $temp = $_POST['pcomment'];
+        $where = $where." AND prescriptions.comment = '$temp'";
     }
-    $patient=$_POST['currPatient'];
-        $name = $patient['lname'] . ", " . $patient['fname'];
-        $group = "cg".$patient['patientgroup'];
-        $query = pg_query($db, "SELECT * FROM roster WHERE date = '$date'");
-        if (!$query) {
-            echo "An error occurred.\n";
-            exit;
-        };
-        $cg = pg_fetch_all($query);
-        $cgID = $cg[0][$group];
-        $query = pg_query($db, "SELECT fname, lname FROM emp WHERE empid = $cgID");
-        if (!$query) {
-            echo "An error occurred.\n";
-            exit;
-        };
-        $ret = pg_fetch_all($query);
-        $cgName = $ret[0]['lname'] . ", " . $ret[0]['fname'];
-        $query = pg_query($db, "SELECT * FROM carechecks WHERE patientid = $id AND date = '$date'");
-        if (!$query) {
-            echo "An error occurred.\n";
-            exit;
-        };
-        $carecheck = pg_fetch_all($query);
-
-
-        $query = pg_query($db, "SELECT * FROM apointments WHERE patientid = $id AND date = '$date'");
-        if (!$query) {
-            echo "An error occurred.\n";
-            exit;
-        };
-        $appointment = pg_fetch_all($query);
-        if(!$appointment) {
-            $docName = "";
-            $appointment = "";
-        } else {
-            $docName = $appointment[0]['empname'];
-            $appointment = true;
-        }
-
-        $report = ['name' => $name, 'docName' => $docName, 'appointment' => $appointment, 'cgName' => $cgName, 'mornmeds' => $carecheck[0]['mornmeds'], 'noonmeds' => $carecheck[0]['noonmeds'], 'nightmeds' => $carecheck[0]['nightmeds'], 'bfast' => $carecheck[0]['bfast'], 'dnr' => $carecheck[0]['dnr'], 'lnch' => $carecheck[0]['lnch']];
+    if ($_POST['time'] != null) {
+        $temp = $_POST['time'];
+        $where = $where." AND timetorecieve = '$temp'";
+    }
+    if ($_POST['med'] != null) {
+        $temp = $_POST['med'];
+        $where = $where." AND medicine = '$temp'";
+    }
+    $query = pg_query($db, "SELECT apointments.patientid, apointments.date, prescriptions.timetorecieve, prescriptions.comment, prescriptions.medicine
+    FROM apointments
+    LEFT JOIN prescriptions
+    ON apointments.date = prescriptions.dateprescribed
+    WHERE apointments.date = prescriptions.dateprescribed AND apointments.patientid = $currid$where");
+    $dhreport = pg_fetch_all($query);
+} else {
+    $query = pg_query($db, "SELECT apointments.patientid, apointments.date, prescriptions.timetorecieve, prescriptions.comment, prescriptions.medicine
+    FROM apointments
+    LEFT JOIN prescriptions
+    ON apointments.date = prescriptions.dateprescribed
+    WHERE apointments.date = prescriptions.dateprescribed AND apointments.patientid = $currid");
+    $dhreport = pg_fetch_all($query);
 }
 
-require("../Veiws/familyHome.view.php")
+if (isset($_POST['futureAppointments'])) {
+    if (isset($_POST['tilDate'])) {
+        $today = date("Y-m-d");
+        $future = $_POST['tilDate'];
+        $id = $_SESSION['id'];
+        $query = pg_query($db, "SELECT patientname, date FROM apointments
+        WHERE (date BETWEEN '$today' AND '$future') AND emdid = $id");
+        $appList = pg_fetch_all($query);
+    } else {
+        $appList = false;
+    }
+}
+
+require("../Veiws/doctorHome.view.php")
 ?>

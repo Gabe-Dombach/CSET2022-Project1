@@ -2,7 +2,7 @@
     $host = "host = 127.0.0.1";
     $port = "port = 5432";
     $dbname = "dbname = ElderCareSystem";
-    $credentials = "user = postgres password=gabe1972";
+    $credentials = "user = postgres password=jaben1215";
     function dbConnect($host, $port, $dbname, $credentials){
         return pg_connect("$host $port $dbname $credentials"); #Connect to the database using user input credentials
     }
@@ -27,7 +27,7 @@
             ('patient','patient','patient@gmail.com','12345',0,'123-456-7890','family','family','2020-01-01','2020-01-01','password')
             ON CONFLICT DO NOTHING;
         CREATE TABLE IF NOT EXISTS apointments
-        (PatientID BIGINT,emdID BIGINT,date TIMESTAMP,empName VARCHAR(50),patientName VARCHAR(50));
+        (PatientID BIGINT,emdID BIGINT,date DATE,empName VARCHAR(50),patientName VARCHAR(50));
 
         CREATE TABLE IF NOT EXISTS roles
         (roles VARCHAR(50) UNIQUE,level INT);
