@@ -23,11 +23,12 @@ if (isset($_POST['submit'])){
         $eCon = $_POST['eContact'];
         $eConName = $_POST['eContactName'];
         $relation = $_POST['relation'];
+            $DOB = $_POST['dob'];
             $date = date("Y-m-d");
             $sql = "INSERT INTO patients
-            (fname,lname,email,familycode,payments,econtact,econtactname,contactrelation,startdate,lastPayment,password)
+            (fname,lname,email,familycode,payments,econtact,econtactname,contactrelation,startdate,DOB,lastPayment,password)
             VALUES
-            ('$fName','$lName','$email','$code',0,'$eCon','$eConName','$relation','$date','$date','$password');
+            ('$fName','$lName','$email','$code',0,'$eCon','$eConName','$relation','$date','$DOB','$date','$password');
             ";
 
             $ret = pg_query($db, $sql);

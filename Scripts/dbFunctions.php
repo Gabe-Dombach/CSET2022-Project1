@@ -2,12 +2,12 @@
     $host = "host = 127.0.0.1";
     $port = "port = 5432";
     $dbname = "dbname = ElderCareSystem";
-    $credentials = "user = postgres password=jaben1215";
+    $credentials = "user = postgres password=gabe1972";
     function dbConnect($host, $port, $dbname, $credentials){
         return pg_connect("$host $port $dbname $credentials"); #Connect to the database using user input credentials
     }
     function dbStart($db){ #Create the tables in database if they dont already exist
-        
+        $date = date("Y-m-d");
         $sql = " 
         CREATE TABLE IF NOT EXISTS EMP
         (empID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50) UNIQUE,role VARCHAR(50),salary BIGINT,DOB DATE,password VARCHAR(30),phone VARCHAR(15),aproved BOOLEAN DEFAULT FALSE);
@@ -20,11 +20,11 @@
         ('Family','Family','Family@gmail.com','Family',100000,'2002-01-09','password','7171234567',TRUE)
         ON CONFLICT DO NOTHING;
         CREATE TABLE IF NOT EXISTS patients
-        (patientID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50) UNIQUE,payments INT, familyCode VARCHAR(50),eContact VARCHAR(30),eContactName VARCHAR(50), contactRelation VARCHAR(50),patientGroup INT,startDate DATE,lastPayment DATE,password VARCHAR(50));
+        (patientID BIGSERIAL PRIMARY KEY,fName VARCHAR(50),lName VARCHAR(50),email VARCHAR(50) UNIQUE,payments INT, familyCode VARCHAR(50),eContact VARCHAR(30),eContactName VARCHAR(50), contactRelation VARCHAR(50),patientGroup INT,startDate DATE,DOB DATE,lastPayment DATE,password VARCHAR(50));
         INSERT INTO patients
-            (fname,lname,email,familycode,payments,econtact,econtactname,contactrelation,startdate,lastPayment,password)
+            (fname,lname,email,familycode,payments,econtact,econtactname,contactrelation,startdate,DOB,lastPayment,password)
             VALUES
-            ('patient','patient','patient@gmail.com','12345',0,'123-456-7890','family','family','2020-01-01','2020-01-01','password')
+            ('patient','patient','patient@gmail.com','12345',0,'123-456-7890','family','family','$date','1950-01-01','$date','password')
             ON CONFLICT DO NOTHING;
         CREATE TABLE IF NOT EXISTS apointments
         (PatientID BIGINT,emdID BIGINT,date DATE,empName VARCHAR(50),patientName VARCHAR(50));

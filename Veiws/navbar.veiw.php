@@ -80,7 +80,7 @@ else if($_SESSION['level'] == '4'){
     <li><a href="../Scripts/DoctorsApointments.php">Doctor\'s Appointment\'s</a></li>
     <li><a href="../Scripts/role.php">Roles</a></li>
     <li><a href="../Scripts/regcheck.php">Registration Aproval</a></li>
-    <li><a href="../Scripts/doctorPatients.php">Doctor\'s Patients</a></li>
+    <li><a href="../Scripts/PatientofDoctor.php">Doctor\'s Patients</a></li>
     <li><a href="../Scripts/newRoster.php">New Staff Roster</a></li>
     <li><a href="../Scripts/roster.php">Staff Roster</a></li>
     <li><a href="../Scripts/payment.php">Payments</a></li>

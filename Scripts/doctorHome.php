@@ -2,9 +2,12 @@
 error_reporting(0); 
 session_start();
 require("dbFunctions.php");
-// if (!isset($_SESSION['user']) || $_SESSION['level'] != '0') {
-//     header("Location:login.php?error=Please login before accessing Family");
-// }
+ if (!isset($_SESSION['user']) || $_SESSION['level'] != '3') {
+     header("Location:login.php?error=Please login before accessing Doctors Home");
+ }
+require ("../Veiws/doctorHome.view.php");
+
+
 
 $db = dbConnect($host, $port, $dbname, $credentials);
 
@@ -67,5 +70,6 @@ if (isset($_POST['futureAppointments'])) {
     }
 }
 
-require("../Veiws/doctorHome.view.php")
+
+
 ?>

@@ -41,32 +41,32 @@ foreach ($reports as $report) {
         <td>".$report['cgName']."</td>
         ";
         if ($report['mornmeds'] == 't'){
-            echo "<td></td>";
+            echo "<td>Taken</td>";
         } else {
             echo "<td> Missing </td>";
         }
         if ($report['noonmeds'] == 't'){
-            echo "<td></td>";
+            echo "<td>Taken</td>";
         } else {
             echo "<td> Missing </td>";
         }
         if ($report['nightmeds'] == 't'){
-            echo "<td></td>";
+            echo "<td>Taken</td>";
         } else {
             echo "<td> Missing </td>";
         }
         if ($report['bfast'] == 't'){
-            echo "<td></td>";
+            echo "<td>Taken</td>";
         } else {
             echo "<td> Missing </td>";
         }
         if ($report['lnch'] == 't'){
-            echo "<td></td>";
+            echo "<td>Taken</td>";
         } else {
             echo "<td> Missing </td>";
         }
         if ($report['dnr'] == 't'){
-            echo "<td></td>";
+            echo "<td>Taken</td>";
         } else {
             echo "<td> Missing </td>";
         }

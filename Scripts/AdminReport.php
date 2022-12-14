@@ -1,15 +1,15 @@
 <?php 
 session_start();
 require("dbFunctions.php");
-// if (!isset($_SESSION['user']) || $_SESSION['level'] != '4') {
-//     if (isset($_SESSION['user'])) {
-//         unset($_SESSION['user']);
-//         if (isset($_SESSION['role'])) {
-//             unset($_SESSION['role']);
-//         }
-//     }
-//     header("Location:login.php?error=Administrator privlages required to acess roles!");
-// }
+ if (!isset($_SESSION['user']) || $_SESSION['level'] != '4') {
+     if (isset($_SESSION['user'])) {
+         unset($_SESSION['user']);
+         if (isset($_SESSION['role'])) {
+             unset($_SESSION['role']);
+         }
+     }
+     header("Location:login.php?error=Administrator privlages required to acess roles!");
+ }
 $db = dbConnect($host, $port, $dbname, $credentials);
 
 $query = pg_query($db, "SELECT * FROM patients");
@@ -85,7 +85,9 @@ if (isset($_POST['ubmit'])) {
         }
         ;
         $cg = pg_fetch_all($query);
+       
         $cgID = $cg[0][$group];
+       
         $query = pg_query($db, "SELECT fname, lname FROM emp WHERE empid = $cgID");
         if (!$query) {
             echo "An error occurred.\n";
@@ -102,7 +104,6 @@ if (isset($_POST['ubmit'])) {
         ;
         $carecheck = pg_fetch_all($query);
 
-
         $query = pg_query($db, "SELECT * FROM apointments WHERE patientid = $id AND date = '$date'");
         if (!$query) {
             echo "An error occurred.\n";
@@ -111,7 +112,7 @@ if (isset($_POST['ubmit'])) {
         ;
         $appointment = pg_fetch_all($query);
         if (!$appointment) {
-            $docName = "";
+            $docName = "NA";
             $appointment = "Missing";
         } else {
             $docName = $appointment[0]['empname'];
