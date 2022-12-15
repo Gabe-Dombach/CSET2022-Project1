@@ -27,7 +27,7 @@
     </div>
 
     <div class="row">
-    <input type="submit" name="submit" value="ok" class="inputS1">
+    <input type="submit" name="submit" value="ok" class="buttonS">
 
     <button onclick="clearFields()" class="buttonS"> cancel </button>
 </div>

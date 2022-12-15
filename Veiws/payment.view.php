@@ -17,7 +17,7 @@
 
 <p> Patient ID </p> 
         <form action="../Scripts/payment.php" METHOD="POST">
-            <input type="number" name="id" value=
+            <input type="number" name="id" Required>
             <?php 
             /*
             if (!isset($_SESSION['patid'])) {
@@ -27,17 +27,16 @@
                 echo $_SESSION['patid'];}
                 */
                 ?> 
-                REQUIRED>
-        </form>
-        <form action="../Scripts/payment.php" METHOD="POST">
-            <input type='submit' name = "update" value="update" class="inputS1">
-        </form>
+          
+
+            <input type='submit' name = "submitID" value="submitID" class="inputS1">
+       
         <form action="../Scripts/payment.php" METHOD="POST">
             <input type='submit' name = "update" value="update">
         </form>
     </p>
 
-<p>Total Due</p>  <p><?php /*  =$payment;  */?></p>
+<p>Total Due</p>  <p><?php if(isset($payment)){echo($payment);}else{echo"No Patient Selected";}  ?></p>
 
 <form action ="../Scripts/payment.php" method ="POST">
 <p> New Payment </p> <p><input type='num' name='payment'></input></p>

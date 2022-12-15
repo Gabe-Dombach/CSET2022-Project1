@@ -4,7 +4,7 @@
 <style>
 
 </style>
-<link rel="stylesheet" type="text/css" href="css/main-display.css">
+<link rel="stylesheet" type="text/css" href="../Veiws/css/main-display.css">
 
 </head>
 <body>
