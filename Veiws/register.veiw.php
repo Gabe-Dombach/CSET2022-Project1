@@ -34,24 +34,28 @@
                 First Name
             </td>
             <td>
-                <input name="firstName" type="text" class="inputS1">                 
+                <input REQUIRED name="firstName" type="text" class="inputS1">                 
             </td>
         </tr>
         <tr>
             <td>Last Name</td>
-            <td><input name="lastName" type="text" class="inputS1"></td>
+            <td><input REQUIRED name="lastName" type="text" class="inputS1"></td>
         </tr>
         <tr>
             <td>Email</td>
-            <td><input name="email" type="email" class="inputS1"></td>
+            <td><input REQUIRED name="email" type="email" class="inputS1"></td>
         </tr>
         <tr>
             <td>Phone</td>
-            <td><input name="phone" type="tel" class="inputS1"></td>
+            <td><input REQUIRED name="phone" type="tel" class="inputS1"></td>
+        </tr>
+        <tr>
+            <td>DOB</td>
+            <td> <input REQUIRED name='dob' type="date"></td>
         </tr>
         <tr>
             <td>Password</td>
-            <td><input name="password" type="text" class="inputS1"></td>
+            <td><input REQUIRED name="password" type="text" class="inputS1"></td>
         </tr>
         <tr class="patientOnly">
             <td class="patientOnly">Family code (for paitent family member) </td>
@@ -69,10 +73,7 @@
             <td class="patientOnly">Relation to emergency contact</td> 
             <td class="patientOnly"> <input class="patientOnly" name="relation" type="text"></td>
         </tr>
-        <tr class="patientOnly">
-            <td class="patientOnly">DOB</td>
-            <td class="patientOnly"> <input name='dob' type="date"></td>
-        </tr>
+     
         <tr>
         <td><input name="submit" type="submit" ></td>
 
