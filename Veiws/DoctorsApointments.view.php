@@ -20,17 +20,6 @@
 <p class="space2">Date</p>  <input type="date" name="dateInput"  id="dateInput" class="inputS1" value="<?=date("Y-m-d")?>" onchange="changed()">
     </div>
 
-    <div class="row">
-<p class="space1"> Doctor </p>  <select name="doctors" id="doctors" class="inputS1">
- 
- <option value="_"></option>
-    <?php foreach($_SESSION['docs'] as $doctor){
-        echo "<option value=".$doctor['empname'].">".$doctor['empname']."</option>";
-    }?>
-  
-
-</select>
-    </div>
 
     <div class="row">
 <p class="space2">patient name</p>  <input type="text" id="patientName" readonly class="inputS1">
