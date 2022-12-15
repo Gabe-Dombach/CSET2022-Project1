@@ -74,7 +74,7 @@ foreach ($reports as $report) {
 ?>
 </table>
 
-<input type="submit" name="ubmit" value="ok">
+<input type="submit" name="ubmit" value="ok" class ="buttonS">
 </form>
 
 </div>
